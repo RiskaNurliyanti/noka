@@ -7,10 +7,7 @@ use App\Models\Produk;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-<<<<<<< HEAD
 // Kelola produk dari sisi admin (moderasi lintas toko).
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class ProdukController extends Controller
 {
     public function index(Request $request): JsonResponse

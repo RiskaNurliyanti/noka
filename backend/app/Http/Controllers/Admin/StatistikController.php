@@ -7,15 +7,10 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-<<<<<<< HEAD
 // Statistik marketplace: produk terlaris, penjualan harian, dll.
 class StatistikController extends Controller
 {
     // Statistik keseluruhan marketplace (total pesanan, pendapatan, dll).
-=======
-class StatistikController extends Controller
-{
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function global(Request $request): JsonResponse
     {
         $stat = (array) DB::table('statistik_global')->first();
@@ -27,10 +22,7 @@ class StatistikController extends Controller
         return response()->json(['success' => true, 'message' => 'OK', 'data' => $stat]);
     }
 
-<<<<<<< HEAD
     // Daftar produk dengan penjualan terbanyak.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function produkTerlaris(Request $request): JsonResponse
     {
         $data = DB::table('produk_terlaris')->limit($request->integer('limit', 5))->get();
@@ -38,10 +30,7 @@ class StatistikController extends Controller
         return response()->json(['success' => true, 'message' => 'OK', 'data' => $data]);
     }
 
-<<<<<<< HEAD
     // Data penjualan per hari, buat grafik tren.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function penjualanHarian(Request $request): JsonResponse
     {
         $data = DB::table('penjualan_harian')->limit($request->integer('limit', 30))->get();

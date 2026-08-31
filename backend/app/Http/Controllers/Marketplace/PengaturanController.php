@@ -12,10 +12,7 @@ use Illuminate\Http\JsonResponse;
  * diekspos di sini, itu tetap lewat /admin/pengaturan (super_admin only).
  * Dibutuhkan App.jsx untuk cek maintenance_mode tanpa perlu login.
  */
-<<<<<<< HEAD
 // Pengaturan sistem yang boleh dilihat publik (nama web, logo, dll).
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class PengaturanController extends Controller
 {
     public function show(): JsonResponse

@@ -8,10 +8,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-<<<<<<< HEAD
 // Cek kesehatan koneksi database, dipakai buat debugging setup Neon/Supabase.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class StatusDatabaseController extends Controller
 {
     /**
@@ -45,10 +42,7 @@ class StatusDatabaseController extends Controller
         ['tabel' => 'log_aktivitas', 'menu' => 'Log Aktivitas', 'kolom_tampil' => 'aksi'],
     ];
 
-<<<<<<< HEAD
     // Cek status koneksi ke Neon & Supabase, buat halaman diagnostik.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function index(Request $request): JsonResponse
     {
         $supabaseTersedia = DualWriteMirror::tersedia();
@@ -68,10 +62,7 @@ class StatusDatabaseController extends Controller
         ]);
     }
 
-<<<<<<< HEAD
     // Bandingkan jumlah baris satu tabel antara Neon dan Supabase.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     private function cekTabel(array $def, bool $supabaseTersedia): array
     {
         $tabel = $def['tabel'];

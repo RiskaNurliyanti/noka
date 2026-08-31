@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 // Halaman syarat & ketentuan penggunaan aplikasi.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 export default function Ketentuan() {
   return (
     <div className="max-w-2xl mx-auto px-4 py-10">

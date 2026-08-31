@@ -9,10 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
-<<<<<<< HEAD
 // Kelola akun pengguna dari sisi admin: ubah role, aktif/nonaktifkan akun.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class UserController extends Controller
 {
     public function index(Request $request): JsonResponse
@@ -57,10 +54,7 @@ class UserController extends Controller
         return response()->json(['success' => true, 'message' => 'Profil pengguna diperbarui', 'data' => $target]);
     }
 
-<<<<<<< HEAD
     // Ubah role seorang user (mis. jadi admin).
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function updateRole(Request $request, string $id): JsonResponse
     {
         $actor = $request->user();
@@ -99,10 +93,7 @@ class UserController extends Controller
         return response()->json(['success' => true, 'message' => 'Role berhasil diubah', 'data' => $target->fresh()]);
     }
 
-<<<<<<< HEAD
     // Aktifkan/nonaktifkan akun user.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function updateStatusAktif(Request $request, string $id): JsonResponse
     {
         $actor = $request->user();

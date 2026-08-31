@@ -14,10 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
-<<<<<<< HEAD
 // Alur pesanan dari sisi pembeli: checkout, riwayat, batalkan, tandai selesai, notifikasi.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class PesananController extends Controller
 {
     use FiltersRiwayatPesanan;
@@ -108,10 +105,7 @@ class PesananController extends Controller
      * riwayat tersimpan di akun - sesuai sifat guest checkout).
      */
 
-<<<<<<< HEAD
     // Riwayat pesanan milik pembeli yang sedang login.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function riwayatSaya(Request $request): JsonResponse
     {
         $query = Pesanan::with(['item.produk', 'toko', 'kurir'])
@@ -144,10 +138,7 @@ class PesananController extends Controller
             ->count();
     }
 
-<<<<<<< HEAD
     // Batalkan pesanan sendiri (dengan alasan).
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function batalkan(Request $request, string $id): JsonResponse
     {
         $user = $request->user();
@@ -183,10 +174,7 @@ class PesananController extends Controller
         return response()->json(['success' => true, 'message' => 'Pesanan dibatalkan', 'data' => $pesanan]);
     }
 
-<<<<<<< HEAD
     // Tandai pesanan sendiri sudah diterima/selesai.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function selesaikan(Request $request, string $id): JsonResponse
     {
         $user = $request->user();
@@ -207,10 +195,7 @@ class PesananController extends Controller
         return response()->json(['success' => true, 'message' => 'Pesanan ditandai selesai', 'data' => $pesanan]);
     }
 
-<<<<<<< HEAD
     // Hitung pesanan yang statusnya berubah, buat badge lonceng pembeli.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function notifikasi(Request $request): JsonResponse
     {
         $user = $request->user();
@@ -236,10 +221,7 @@ class PesananController extends Controller
         ]);
     }
 
-<<<<<<< HEAD
     // Tandai notifikasi pembeli sudah dilihat.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function tandaiNotifikasiDilihat(Request $request): JsonResponse
     {
         $request->user()->forceFill(['notifikasi_pesanan_dilihat_at' => now()])->save();

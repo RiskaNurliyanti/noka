@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 // Entry point React - render <App /> ke DOM.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'

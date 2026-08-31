@@ -7,10 +7,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-<<<<<<< HEAD
 // Review & rating pembeli untuk sebuah toko.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class ReviewToko extends Model
 {
     use HasUuids, MirrorsToSupabase;

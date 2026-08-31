@@ -7,10 +7,7 @@ use App\Models\Kurir;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-<<<<<<< HEAD
 // Direktori kurir untuk publik: daftar dan detail satu kurir.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class KurirController extends Controller
 {
     public function index(Request $request): JsonResponse

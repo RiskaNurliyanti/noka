@@ -11,10 +11,7 @@ use PhpOffice\PhpSpreadsheet\Style\Fill;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
-<<<<<<< HEAD
 // Bikin file Excel laporan pesanan buat diunduh toko/admin.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class LaporanPesananExcel
 {
     private const HEADER = [

@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 // Halaman pendaftaran jadi mitra toko/kurir baru.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'

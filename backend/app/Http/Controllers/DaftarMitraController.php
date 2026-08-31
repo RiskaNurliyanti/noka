@@ -19,15 +19,10 @@ use Illuminate\Http\Request;
  * karena operasi UI biasa" - insert toko/kurir bukan alasan otomatis buat
  * naik role.
  */
-<<<<<<< HEAD
 // Form pendaftaran jadi mitra toko atau mitra kurir baru.
 class DaftarMitraController extends Controller
 {
     // Ajukan pendaftaran jadi mitra toko baru.
-=======
-class DaftarMitraController extends Controller
-{
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function storeToko(Request $request): JsonResponse
     {
         $data = $request->validate([
@@ -51,10 +46,7 @@ class DaftarMitraController extends Controller
         ], 201);
     }
 
-<<<<<<< HEAD
     // Ajukan pendaftaran jadi mitra kurir baru.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function storeKurir(Request $request): JsonResponse
     {
         $data = $request->validate([

@@ -1,4 +1,4 @@
--- Stage 22: dual-write ke Supabase (App\Services\DualWriteMirror)
+-- Dual-write ke Supabase (App\Services\DualWriteMirror)
 --
 -- ⚠️ Kalau Supabase project kamu MASIH KOSONG (setup dari nol), JANGAN pakai
 -- file ini - pakai SUPABASE-SCHEMA-LENGKAP.sql (bikin semua tabel dari nol,
@@ -22,11 +22,11 @@
 -- kolom belum ada, jadi TETAP disarankan jalankan ini kalau mau dual-write
 -- pesanan berfungsi penuh.
 
--- 1. Kolom baru di tabel pesanan (checkpoint 1 - Stage 18)
+-- 1. Kolom baru di tabel pesanan (alasan & peran pembatalan)
 alter table pesanan add column if not exists alasan_pembatalan varchar(40);
 alter table pesanan add column if not exists dibatalkan_oleh_role varchar(20);
 
--- 2. Tabel laporan_pengguna (checkpoint 1 - Stage 19: fitur Lapor Masalah)
+-- 2. Tabel laporan_pengguna (fitur Lapor Masalah)
 create table if not exists laporan_pengguna (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references users(id) on delete cascade,
@@ -42,7 +42,7 @@ create table if not exists laporan_pengguna (
   updated_at timestamp
 );
 
--- 3. Tabel audit_log_pesanan (checkpoint 2 - Stage 21: audit log)
+-- 3. Tabel audit_log_pesanan (audit log perubahan status pesanan)
 create table if not exists audit_log_pesanan (
   id uuid primary key default gen_random_uuid(),
   pesanan_id uuid references pesanan(id) on delete set null,
@@ -58,7 +58,7 @@ create table if not exists audit_log_pesanan (
 create index if not exists audit_log_pesanan_pesanan_id_idx on audit_log_pesanan(pesanan_id);
 create index if not exists audit_log_pesanan_created_at_idx on audit_log_pesanan(created_at);
 
--- 4. Tabel langganan (checkpoint 2 - Stage 21: fitur langganan)
+-- 4. Tabel langganan (fitur langganan bulanan toko)
 create table if not exists langganan (
   id uuid primary key default gen_random_uuid(),
   toko_id uuid not null unique references toko(id) on delete cascade,
@@ -70,7 +70,7 @@ create table if not exists langganan (
   updated_at timestamp
 );
 
--- 5. Tabel tagihan (checkpoint 2 - Stage 21: tagihan bulanan)
+-- 5. Tabel tagihan (tagihan bulanan toko)
 create table if not exists tagihan (
   id uuid primary key default gen_random_uuid(),
   toko_id uuid not null references toko(id) on delete cascade,

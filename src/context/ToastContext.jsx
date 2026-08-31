@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 // Sistem notifikasi pop-up kecil (toast) di pojok layar.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { createContext, useCallback, useContext, useState } from 'react'
 
 const ToastContext = createContext(null)

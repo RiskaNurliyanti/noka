@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 // Kartu toko (foto, nama, rating), dipakai di daftar toko.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { Link } from 'react-router-dom'
 import SafeImage from './SafeImage'
 

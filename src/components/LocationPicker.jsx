@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 // Pilih lokasi di peta, dipakai buat alamat toko/pengantaran.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { useEffect, useRef } from 'react'
 import { MapContainer, TileLayer, Marker, useMap, useMapEvents } from 'react-leaflet'
 

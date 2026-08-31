@@ -7,10 +7,7 @@ use App\Models\Kategori;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-<<<<<<< HEAD
 // Kelola (tambah/ubah/hapus) kategori produk dari sisi admin.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class KategoriController extends Controller
 {
     public function store(Request $request): JsonResponse

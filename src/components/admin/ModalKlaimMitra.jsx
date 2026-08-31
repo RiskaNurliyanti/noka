@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 // Popup detail satu pengajuan klaim mitra buat ditinjau admin.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 export default function ModalKlaimMitra({
   open,
   jenis,

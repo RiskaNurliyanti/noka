@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 // Halaman peta lokasi toko-toko.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { MapContainer, TileLayer, Marker, Popup, Circle, useMap } from 'react-leaflet'

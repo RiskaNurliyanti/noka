@@ -12,10 +12,7 @@ use Illuminate\Support\Facades\DB;
  * login (where('user_id', $request->user()->id)) - mitra tidak pernah bisa
  * pilih/pegang toko_id dari input, supaya tidak bisa edit toko orang lain.
  */
-<<<<<<< HEAD
 // Kelola profil toko sendiri: data toko, status buka-tutup, statistik, dan notifikasi.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class TokoController extends Controller
 {
     public function show(Request $request): JsonResponse
@@ -71,10 +68,7 @@ class TokoController extends Controller
         return response()->json(['success' => true, 'message' => 'Toko berhasil diperbarui', 'data' => $toko]);
     }
 
-<<<<<<< HEAD
     // Toggle status toko lagi buka/tutup.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function updateStatusBuka(Request $request): JsonResponse
     {
         $toko = $request->user()->toko()->first();
@@ -107,10 +101,7 @@ class TokoController extends Controller
         return response()->json(['success' => true, 'message' => 'OK', 'data' => $stats]);
     }
 
-<<<<<<< HEAD
     // Statistik toko per hari, buat grafik tren.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function statsHarian(Request $request): JsonResponse
     {
         $toko = $request->user()->toko()->first();
@@ -204,10 +195,7 @@ class TokoController extends Controller
         ]);
     }
 
-<<<<<<< HEAD
     // Tandai notifikasi toko sudah dilihat.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function tandaiNotifikasiDilihat(Request $request): JsonResponse
     {
         $toko = $request->user()->toko()->first();

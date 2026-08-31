@@ -6,7 +6,7 @@
 -- yang SUDAH TIDAK DIPAKAI - backend sekarang pakai tabel `users` polos
 -- + Laravel Sanctum, BUKAN Supabase Auth sama sekali.
 --
--- Untuk setup Supabase sebagai database CADANGAN (dual-write, Stage 22),
+-- Untuk setup Supabase sebagai database CADANGAN (dual-write),
 -- pakai file ini sebagai gantinya:
 --   noka-backend-real/database/SUPABASE-SCHEMA-LENGKAP.sql
 --
@@ -323,7 +323,7 @@ order by jumlah_kunjungan desc, jumlah_pesanan desc;
 
 -- ------------------------------------------------------------
 -- 9. REVIEW
--- (tabelnya sudah dibuat di section 8b di atas, sebelum view statistik)
+-- (tabelnya sudah dibuat di atas, sebelum view statistik)
 -- ------------------------------------------------------------
 
 -- ------------------------------------------------------------

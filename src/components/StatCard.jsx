@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 // Kartu angka statistik ringkas (mis. total pesanan) di dashboard.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import Card from './Card'
 
 /**

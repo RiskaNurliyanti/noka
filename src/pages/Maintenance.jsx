@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 // Halaman yang tampil kalau aplikasi lagi mode maintenance.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 export default function Maintenance() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4 text-center">

@@ -12,15 +12,10 @@ use App\Models\Toko;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-<<<<<<< HEAD
 // Beri review untuk produk/toko/kurir dari pesanan yang sudah pernah dibeli.
 class ReviewController extends Controller
 {
     // Aturan validasi rating & komentar review.
-=======
-class ReviewController extends Controller
-{
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     private function rules(): array
     {
         return [
@@ -29,10 +24,7 @@ class ReviewController extends Controller
         ];
     }
 
-<<<<<<< HEAD
     // Petakan jenis review ke Model class-nya.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     private function modelFor(string $jenis): string
     {
         return match ($jenis) {
@@ -73,10 +65,7 @@ class ReviewController extends Controller
         return $cocok ? $pesanan : null;
     }
 
-<<<<<<< HEAD
     // Simpan review baru (dipakai bareng oleh storeProduk/storeToko/storeKurir).
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     private function simpanReview(Request $request, string $jenis, string $targetId): JsonResponse
     {
         $pesananId = $request->input('pesanan_id');
@@ -126,10 +115,7 @@ class ReviewController extends Controller
         return response()->json(['success' => true, 'message' => 'Review terkirim', 'data' => $review], 201);
     }
 
-<<<<<<< HEAD
     // Kirim review untuk sebuah produk.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function storeProduk(Request $request, string $produkId): JsonResponse
     {
         if (! Produk::find($produkId)) {
@@ -139,10 +125,7 @@ class ReviewController extends Controller
         return $this->simpanReview($request, 'produk', $produkId);
     }
 
-<<<<<<< HEAD
     // Kirim review untuk sebuah toko.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function storeToko(Request $request, string $tokoId): JsonResponse
     {
         if (! Toko::find($tokoId)) {
@@ -152,10 +135,7 @@ class ReviewController extends Controller
         return $this->simpanReview($request, 'toko', $tokoId);
     }
 
-<<<<<<< HEAD
     // Kirim review untuk seorang kurir.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function storeKurir(Request $request, string $kurirId): JsonResponse
     {
         if (! Kurir::find($kurirId)) {
@@ -216,10 +196,7 @@ class ReviewController extends Controller
         return response()->json(['success' => true, 'message' => 'Review diperbarui', 'data' => $review]);
     }
 
-<<<<<<< HEAD
     // Hapus review milik sendiri.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function destroy(Request $request, string $jenis, string $id): JsonResponse
     {
         if (! in_array($jenis, ['produk', 'toko', 'kurir'], true)) {

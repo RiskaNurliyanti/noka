@@ -5,10 +5,7 @@ namespace App\Services;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
-<<<<<<< HEAD
 // Salin tulisan baru (pesanan) ke database Supabase selain Neon, buat migrasi bertahap dua database.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class DualWriteMirror
 {
     private static ?bool $tersedia = null;
@@ -54,10 +51,7 @@ class DualWriteMirror
         }
     }
 
-<<<<<<< HEAD
     // Hapus satu baris data dari tabel yang sama di Supabase.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public static function hapus(string $tabel, $id): void
     {
         if (! self::tersedia() || empty($id)) {

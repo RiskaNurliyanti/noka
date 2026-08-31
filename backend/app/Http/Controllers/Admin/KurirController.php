@@ -11,10 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
-<<<<<<< HEAD
 // Kelola akun mitra kurir dari sisi admin: verifikasi, aktif/nonaktifkan, dll.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class KurirController extends Controller
 {
     public function index(Request $request): JsonResponse
@@ -63,10 +60,7 @@ class KurirController extends Controller
         return response()->json(['success' => true, 'message' => 'Kurir berhasil dihapus', 'data' => null]);
     }
 
-<<<<<<< HEAD
     // Setujui/tolak pendaftaran mitra kurir baru.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function verifikasi(Request $request, string $id): JsonResponse
     {
         $kurir = Kurir::findOrFail($id);
@@ -76,10 +70,7 @@ class KurirController extends Controller
         return response()->json(['success' => true, 'message' => 'Status verifikasi diperbarui', 'data' => $kurir]);
     }
 
-<<<<<<< HEAD
     // Aktifkan/nonaktifkan akun kurir.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function statusAktif(Request $request, string $id): JsonResponse
     {
         $kurir = Kurir::findOrFail($id);
@@ -134,10 +125,7 @@ class KurirController extends Controller
         return response()->json(['success' => true, 'message' => 'Kurir berhasil ditautkan ke akun tersebut', 'data' => $kurir->fresh()]);
     }
 
-<<<<<<< HEAD
     // Aturan validasi input, dipakai bareng oleh store() dan update().
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     private function validatedData(Request $request, bool $partial = false): array
     {
         $req = $partial ? 'sometimes' : 'required';

@@ -1,6 +1,6 @@
 -- ============================================================
 -- NOKA — Skema LENGKAP untuk Supabase (database CADANGAN / dual-write)
--- Stage 22. Jalankan SEKALI di project Supabase yang MASIH KOSONG lewat
+-- Jalankan SEKALI di project Supabase yang MASIH KOSONG lewat
 -- Supabase Dashboard > SQL Editor > New query > paste semua > Run.
 --
 -- Skema ini sudah disesuaikan 1:1 dengan struktur Neon (backend Laravel)
@@ -199,7 +199,7 @@ create table kunjungan_toko (
   created_at timestamp not null default now()
 );
 
--- Stage 25: analitik pengunjung situs (beda dari kunjungan_toko di atas
+-- Analitik pengunjung situs (beda dari kunjungan_toko di atas
 -- yang cuma catat kunjungan ke halaman toko tertentu)
 create table kunjungan_situs (
   id uuid primary key default gen_random_uuid(),
@@ -258,7 +258,7 @@ create table pesanan (
   alamat_antar text,
   catatan text,
   status varchar(20) not null default 'dibuat' check (status in ('dibuat', 'diproses', 'selesai', 'dibatalkan')),
-  -- Stage 18: alasan & peran pembatalan
+  -- Alasan & peran pembatalan
   alasan_pembatalan varchar(40) check (alasan_pembatalan in ('toko_tutup', 'stok_tidak_tersedia', 'kurir_libur', 'ganti_toko_lain', 'tidak_jadi_beli')),
   dibatalkan_oleh_role varchar(20) check (dibatalkan_oleh_role in ('pembeli', 'penjual', 'kurir', 'admin', 'super_admin')),
   updated_at timestamp,
@@ -299,7 +299,7 @@ create table klaim_mitra (
 );
 
 -- ------------------------------------------------------------
--- 11. LAPORAN PENGGUNA (Stage 19 — fitur Lapor Masalah)
+-- 11. LAPORAN PENGGUNA (fitur Lapor Masalah)
 -- ------------------------------------------------------------
 create table laporan_pengguna (
   id uuid primary key default gen_random_uuid(),
@@ -317,7 +317,7 @@ create table laporan_pengguna (
 );
 
 -- ------------------------------------------------------------
--- 12. AUDIT LOG PESANAN (Stage 21 — khusus super admin)
+-- 12. AUDIT LOG PESANAN (khusus super admin)
 -- ------------------------------------------------------------
 create table audit_log_pesanan (
   id uuid primary key default gen_random_uuid(),
@@ -335,7 +335,7 @@ create index audit_log_pesanan_pesanan_id_idx on audit_log_pesanan (pesanan_id);
 create index audit_log_pesanan_created_at_idx on audit_log_pesanan (created_at);
 
 -- ------------------------------------------------------------
--- 13. LANGGANAN & TAGIHAN (Stage 21 — fitur langganan toko)
+-- 13. LANGGANAN & TAGIHAN (fitur langganan toko)
 -- ------------------------------------------------------------
 create table langganan (
   id uuid primary key default gen_random_uuid(),

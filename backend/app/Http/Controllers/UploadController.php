@@ -13,10 +13,7 @@ use Illuminate\Support\Str;
  * noka-foto). Foto lama TETAP di Supabase (URL utuh di DB, tidak disentuh)
  * - ini cuma untuk upload BARU setelah frontend migrasi ke Laravel API.
  */
-<<<<<<< HEAD
 // Upload file (foto produk, toko, dll) ke storage.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class UploadController extends Controller
 {
     public function store(Request $request): JsonResponse

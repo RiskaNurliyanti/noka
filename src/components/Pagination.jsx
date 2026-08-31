@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 // Navigasi halaman (1,2,3,...) untuk daftar data yang panjang.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 export default function Pagination({ page, totalPages, onChange }) {
   if (totalPages <= 1) return null
 

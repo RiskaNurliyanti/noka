@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 // Indikator loading berputar.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 export default function Spinner({ label = 'Memuat...' }) {
   return (
     <div className="flex items-center justify-center gap-2 py-16 text-gray-400 dark:text-gray-500">

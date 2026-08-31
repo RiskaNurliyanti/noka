@@ -8,10 +8,7 @@ use App\Models\Produk;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-<<<<<<< HEAD
 // Direktori produk untuk publik: daftar dan detail satu produk.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class ProdukController extends Controller
 {
     use SortsReview;

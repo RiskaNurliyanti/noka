@@ -176,7 +176,7 @@ Cari `NOMOR_WA_ADMIN` di `src/pages/KlaimMitra.jsx`, ganti dengan nomor WhatsApp
 
 ## 5. Setup Supabase (database cadangan / dual-write) — OPSIONAL
 
-Stage 22: NOKA bisa jalan dengan **1 database saja** (Neon, dari langkah 1) — bagian ini murni **opsional**, buat yang mau punya salinan cadangan otomatis di Supabase. Skip bagian ini kalau belum perlu; aplikasi tetap jalan normal tanpanya.
+NOKA bisa jalan dengan **1 database saja** (Neon, dari langkah 1) — bagian ini murni **opsional**, buat yang mau punya salinan cadangan otomatis di Supabase. Skip bagian ini kalau belum perlu; aplikasi tetap jalan normal tanpanya.
 
 **Konsepnya:** Neon tetap **satu-satunya** database yang **dibaca** aplikasi (source of truth). Supabase cuma nampung **salinan tulis-jalan** (mirror) dari setiap perubahan pesanan — kalau Neon down/hilang, ada cadangan. Kalau Supabase belum di-setup atau lagi down, aplikasi tetap jalan normal (mirror di-skip diam-diam, tidak ada error ke user).
 
@@ -235,7 +235,7 @@ Proses ini akan menampilkan progress bar per tabel. Aman dijalankan ulang kapan 
 
 ### 5.7 (Opsional) Jadwalkan tagihan bulanan otomatis
 
-Stage 21 (fitur langganan) punya command `tagihan:generate` yang perlu jalan otomatis tiap hari. Tambahkan 1 baris cron di server production (bukan buat local dev):
+Fitur langganan punya command `tagihan:generate` yang perlu jalan otomatis tiap hari. Tambahkan 1 baris cron di server production (bukan buat local dev):
 
 ```
 * * * * * cd /path/ke/noka-backend-real && php artisan schedule:run >> /dev/null 2>&1

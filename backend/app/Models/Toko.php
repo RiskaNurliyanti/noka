@@ -10,10 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-<<<<<<< HEAD
 // Profil toko/UMKM di marketplace, termasuk status buka-tutup dan verifikasinya.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class Toko extends Model
 {
     use HasUuids, MirrorsToSupabase;
@@ -48,10 +45,7 @@ class Toko extends Model
         ];
     }
 
-<<<<<<< HEAD
     // Hitung status buka/tutup toko saat ini, berdasarkan jam operasional & status manual.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     protected function sedangBuka(): Attribute
     {
         return Attribute::make(

@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 // Halaman ajukan klaim kepemilikan toko/kurir yang belum ada pemiliknya.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { useEffect, useState } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";

@@ -15,18 +15,12 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
-<<<<<<< HEAD
 // Lihat & kelola semua pesanan di sistem dari sisi admin, termasuk export laporan.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class PesananController extends Controller
 {
     use FiltersRiwayatPesanan;
 
-<<<<<<< HEAD
     // Filter pesanan berdasarkan kata kunci pencarian.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     private function filterCari(Request $request, $query)
     {
         if ($request->filled('q')) {
@@ -80,10 +74,7 @@ class PesananController extends Controller
      * batasan toko (admin boleh ubah pesanan toko manapun).
      */
 
-<<<<<<< HEAD
     // Ubah status pesanan manapun (admin boleh override aturan role lain).
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function updateStatus(Request $request, string $id): JsonResponse
     {
         $pesanan = Pesanan::find($id);

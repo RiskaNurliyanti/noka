@@ -9,10 +9,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
-<<<<<<< HEAD
 // Kelola akun toko dari sisi admin: verifikasi, aktif/nonaktifkan, dll.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class TokoController extends Controller
 {
     public function index(Request $request): JsonResponse
@@ -59,10 +56,7 @@ class TokoController extends Controller
         return response()->json(['success' => true, 'message' => 'Toko berhasil dihapus', 'data' => null]);
     }
 
-<<<<<<< HEAD
     // Setujui/tolak pendaftaran toko baru.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function verifikasi(Request $request, string $id): JsonResponse
     {
         $toko = Toko::findOrFail($id);
@@ -80,10 +74,7 @@ class TokoController extends Controller
         return response()->json(['success' => true, 'message' => 'Status verifikasi diperbarui', 'data' => $toko]);
     }
 
-<<<<<<< HEAD
     // Aktifkan/nonaktifkan akun toko.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function statusAktif(Request $request, string $id): JsonResponse
     {
         $toko = Toko::findOrFail($id);
@@ -93,10 +84,7 @@ class TokoController extends Controller
         return response()->json(['success' => true, 'message' => 'Status aktif diperbarui', 'data' => $toko]);
     }
 
-<<<<<<< HEAD
     // Aturan validasi input, dipakai bareng oleh store() dan update().
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     private function validatedData(Request $request, bool $partial = false): array
     {
         $req = $partial ? 'sometimes' : 'required';

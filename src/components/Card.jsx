@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 // Kontainer kotak dengan border/shadow standar, dipakai di banyak halaman.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 /**
  * Container dasar NOKA - satu border/radius/shadow konsisten dipakai di
  * mana pun butuh "kotak putih" (form, list item, panel). Menghindari

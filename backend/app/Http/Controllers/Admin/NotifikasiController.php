@@ -31,15 +31,10 @@ use Illuminate\Http\Request;
  *    beneran selesai (toko bayar / langganan diperpanjang), bukan sampai
  *    "dilihat".
  */
-<<<<<<< HEAD
 // Notifikasi buat admin, mis. ada pengajuan mitra baru yang perlu ditinjau.
 class NotifikasiController extends Controller
 {
     // Hal-hal yang perlu perhatian admin (klaim baru, laporan baru, dll).
-=======
-class NotifikasiController extends Controller
-{
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function index(Request $request): JsonResponse
     {
         $user = $request->user();
@@ -82,10 +77,7 @@ class NotifikasiController extends Controller
         ]);
     }
 
-<<<<<<< HEAD
     // Tandai notifikasi admin sudah dilihat.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function tandaiDilihat(Request $request): JsonResponse
     {
         $request->user()->update(['notifikasi_dilihat_at' => now()]);

@@ -16,27 +16,18 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
-<<<<<<< HEAD
 // Kelola pesanan masuk milik toko sendiri: lihat, ubah status, export laporan.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class PesananController extends Controller
 {
     use FiltersRiwayatPesanan;
 
-<<<<<<< HEAD
     // Ambil toko milik user yang sedang login (jaga-jaga kalau belum/tidak punya toko).
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     private function tokoMilikUser(Request $request): ?Toko
     {
         return $request->user()->toko()->first();
     }
 
-<<<<<<< HEAD
     // Filter pesanan berdasarkan kata kunci pencarian.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     private function filterCari(Request $request, $query)
     {
         if ($request->filled('q')) {
@@ -85,10 +76,7 @@ class PesananController extends Controller
         return response()->json(['success' => true, 'message' => 'OK', 'data' => $pesanan]);
     }
 
-<<<<<<< HEAD
     // Ubah status pesanan toko sendiri (gak bisa 'selesai' kalau diantar kurir, dst).
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function updateStatus(Request $request, string $id): JsonResponse
     {
         $toko = $this->tokoMilikUser($request);
@@ -132,10 +120,7 @@ class PesananController extends Controller
         return response()->json(['success' => true, 'message' => 'Status pesanan diperbarui', 'data' => $pesanan]);
     }
 
-<<<<<<< HEAD
     // Export daftar pesanan toko sendiri ke Excel.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function export(Request $request): StreamedResponse|JsonResponse
     {
         $toko = $this->tokoMilikUser($request);

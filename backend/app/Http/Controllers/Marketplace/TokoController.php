@@ -8,10 +8,7 @@ use App\Models\Toko;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-<<<<<<< HEAD
 // Direktori toko untuk publik: daftar, detail satu toko, dan catat kunjungan.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class TokoController extends Controller
 {
     use SortsReview;

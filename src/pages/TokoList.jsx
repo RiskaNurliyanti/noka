@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 // Halaman daftar/pencarian semua toko.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { useEffect, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { api } from '../lib/apiClient'

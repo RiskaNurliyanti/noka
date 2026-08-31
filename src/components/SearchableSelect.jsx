@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 // Dropdown pilihan yang bisa dicari (mis. pilih toko/kategori).
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { useEffect, useRef, useState } from 'react'
 
 // Dropdown dengan fitur cari - dipakai buat list yang panjang (kategori,

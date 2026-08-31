@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 // Routing utama aplikasi - daftar semua halaman & proteksi role per rute.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { useEffect, useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'

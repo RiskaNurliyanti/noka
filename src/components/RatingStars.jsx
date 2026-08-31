@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 // Tampilan bintang rating buat review.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 export default function RatingStars({ rating = 0, jumlahReview = null, size = 14 }) {
   // Kolom rating dari API kadang balik sebagai string (tipe numeric/decimal
   // Postgres lewat PDO), bukan number - Math.round/toFixed bakal error kalau

@@ -7,10 +7,7 @@ use App\Models\Tagihan;
 use App\Models\Toko;
 use Carbon\Carbon;
 
-<<<<<<< HEAD
 // Hitung tagihan langganan bulanan toko berdasarkan jumlah transaksi.
-=======
->>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class TagihanService
 {
     public const BIAYA_LANGGANAN = 5000;
