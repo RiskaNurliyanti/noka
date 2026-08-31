@@ -2,10 +2,6 @@ import { api } from './apiClient'
 
 const KUNCI_SESI = 'noka_sesi_id'
 
-// Stage 25: ID anonim per-browser (BUKAN per-user, tetap ada walau belum
-// login) - disimpan di localStorage, dipakai backend buat menghitung
-// "pengunjung unik" tanpa perlu cookie/tracker pihak ketiga. Dibuat sekali
-// dan bertahan sampai localStorage dibersihkan sendiri oleh pengguna.
 function ambilSesiId() {
   let id = localStorage.getItem(KUNCI_SESI)
   if (!id) {

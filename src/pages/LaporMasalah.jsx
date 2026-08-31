@@ -15,11 +15,6 @@ const LABEL_JENIS = { bug: '🐞 Bug aplikasi', pelanggaran: '⚠️ Pelanggaran
 const LABEL_STATUS = { pending: 'Menunggu', diproses: 'Diproses', selesai: 'Selesai', ditolak: 'Ditolak' }
 const WARNA_STATUS = { pending: 'gray', diproses: 'brand', selesai: 'green', ditolak: 'red' }
 
-/**
- * Stage 19: pusat aduan - semua role yang login bisa lapor kalau nemu bug
- * di NOKA atau pelanggaran (toko/kurir/pembeli lain berlaku curang di luar
- * sistem). Laporan masuk ke admin & super_admin lewat menu "Kelola Aduan".
- */
 export default function LaporMasalah() {
   const { showToast } = useToast()
   const [riwayat, setRiwayat] = useState([])

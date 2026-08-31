@@ -28,13 +28,11 @@ export default function PesananSaya() {
   // (yang toh bakal ditolak backend).
   const [reviewSaya, setReviewSaya] = useState({ produk: [], toko: [], kurir: [] })
 
-  // Stage 18: filter & pencarian riwayat pesanan.
   const [cari, setCari] = useState('')
   const [periode, setPeriode] = useState({ bulan: '' }) // { bulan } | { minggu } | { hari }
   const [page, setPage] = useState(1)
   const [totalPages, setTotalPages] = useState(1)
 
-  // Stage 18: batalkan/selesaikan pesanan sendiri.
   const [pesananDibatalkan, setPesananDibatalkan] = useState(null) // id pesanan yang lagi dipilih buat dibatalkan
   const [prosesId, setProsesId] = useState(null)
 

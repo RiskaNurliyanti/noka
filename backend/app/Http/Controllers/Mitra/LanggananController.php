@@ -8,13 +8,6 @@ use App\Models\Tagihan;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-/**
- * Stage 21: toko lihat status langganannya sendiri (aktif/kadaluarsa,
- * sisa hari, notifikasi kalau mau habis) dan histori tagihan bulanan.
- * TIDAK ada endpoint bayar di sini - pembayaran masih manual lewat
- * WhatsApp ke admin (lihat Admin\LanggananController::tandaiLunas), NOKA
- * belum punya payment gateway.
- */
 class LanggananController extends Controller
 {
     public function show(Request $request): JsonResponse

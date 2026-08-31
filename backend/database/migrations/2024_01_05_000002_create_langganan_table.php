@@ -7,13 +7,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Stage 21: langganan bulanan toko - biaya flat murah ala UMKM
-     * (default Rp5.000/bulan, lihat App\Services\TagihanService buat
-     * skema biaya tambahan per transaksi). 1 toko = 1 baris langganan yang
-     * terus diperpanjang (bukan histori per periode - histori pembayaran
-     * ada di tabel `tagihan` terpisah).
-     */
+
     public function up(): void
     {
         Schema::create('langganan', function (Blueprint $table) {

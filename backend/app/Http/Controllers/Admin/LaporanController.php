@@ -8,10 +8,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
-/**
- * Kelola aduan (Stage 19) untuk admin & super_admin - role:admin di route
- * otomatis meloloskan super_admin juga (lihat EnsureUserHasRole).
- */
 class LaporanController extends Controller
 {
     public function index(Request $request): JsonResponse

@@ -11,19 +11,6 @@ use PhpOffice\PhpSpreadsheet\Style\Fill;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
-/**
- * Laporan Excel pemesanan NOKA (Stage 17). Satu baris = satu ITEM produk
- * dalam pesanan (bukan satu baris per pesanan) - supaya kolom "Nama Produk"
- * dan "Jumlah" akurat granular sesuai isi pesanan sungguhan.
- *
- * Dipakai sama-sama oleh Mitra\PesananController (laporan toko sendiri)
- * dan Admin\PesananController (laporan seluruh toko / toko tertentu).
- *
- * PENTING: pakai setCellValue([kolom, baris], value) - BUKAN
- * setCellValueByColumnAndRow($kolom, $baris, $value). Method itu API lama
- * PhpSpreadsheet 1.x yang SUDAH DIHAPUS TOTAL di versi 2.x (bukan cuma
- * deprecated) - manggilnya bikin fatal error "Call to undefined method".
- */
 class LaporanPesananExcel
 {
     private const HEADER = [

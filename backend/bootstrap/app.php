@@ -26,8 +26,6 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        // Response error konsisten sesuai format yang ditentukan (Section 23):
-        // { success: false, message: "..." } - tidak membocorkan stack trace/SQL ke user.
         $exceptions->render(function (\Throwable $e, \Illuminate\Http\Request $request) {
             if (! $request->is('api/*')) {
                 return null; // biarkan Laravel handle normal buat non-API request

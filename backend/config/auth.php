@@ -29,8 +29,6 @@ return [
         ],
     ],
 
-    // Dipakai Password::sendResetLink() / Password::reset() di PasswordResetController.
-    // expire dalam menit (60 = sesuai instruksi Section 9 "token reset memiliki expiry").
     'passwords' => [
         'users' => [
             'provider' => 'users',

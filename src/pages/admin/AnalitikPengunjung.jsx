@@ -14,13 +14,6 @@ const OPSI_PERIODE = [
   { value: 90, label: '90 hari terakhir' },
 ]
 
-/**
- * Stage 25: analitik pengunjung situs (bukan omset toko) - total
- * kunjungan, pengunjung unik, halaman populer, breakdown perangkat, tren
- * harian. Boleh dilihat admin biasa maupun super_admin (metrik
- * engagement platform, bukan data penjualan toko - lihat catatan di
- * Admin\AnalitikController).
- */
 export default function AnalitikPengunjung() {
   const { showToast } = useToast()
   const [hari, setHari] = useState(30)

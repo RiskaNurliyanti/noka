@@ -6,17 +6,11 @@ use App\Models\Langganan;
 use App\Services\TagihanService;
 use Illuminate\Console\Command;
 
-/**
- * Stage 21: hitung & catat tagihan bulanan tiap toko. Dijadwalkan jalan
- * otomatis tiap hari (lihat routes/console.php) supaya tagihan bulan
- * berjalan selalu up to date sampai akhir bulan (bukan cuma dihitung 1x
- * di awal bulan) - jumlah transaksi kan terus bertambah sepanjang bulan.
- */
 class GenerateTagihanBulanan extends Command
 {
     protected $signature = 'tagihan:generate {periode? : Format YYYY-MM, default bulan berjalan}';
 
-    protected $description = 'Hitung & catat tagihan langganan bulanan tiap toko (Stage 21)';
+    protected $description = 'Hitung & catat tagihan langganan bulanan tiap toko';
 
     public function handle(): int
     {

@@ -7,11 +7,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
-/**
- * Stage 19: pusat aduan - semua role yang login bisa lapor bug atau
- * pelanggaran ke admin/super_admin. Lihat App\Models\LaporanPengguna dan
- * migration 2024_01_04_000002 untuk detail desain tabel.
- */
 class LaporanController extends Controller
 {
     public function store(Request $request): JsonResponse

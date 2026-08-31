@@ -1,16 +1,5 @@
 import { useState } from 'react'
 
-/**
- * Input dasar NOKA - label + field + pesan error konsisten, dipakai di
- * seluruh form. forwardRef tidak dipakai karena belum ada kasus yang
- * butuh akses DOM langsung - ditambah nanti kalau memang perlu.
- *
- * Stage 3 fix: icon lihat password ditaruh di sini (bukan diduplikasi di
- * tiap halaman - Login/Register/ResetPassword semua pakai Input yang sama)
- * supaya tidak hilang lagi kalau posisi kolom password berubah di halaman
- * manapun. Otomatis aktif untuk type="password", tidak mengubah perilaku
- * type lain.
- */
 export default function Input({ label, error, hint, textarea = false, type, className = '', ...props }) {
   const Comp = textarea ? 'textarea' : 'input'
   const isPassword = type === 'password'

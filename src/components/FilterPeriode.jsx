@@ -46,12 +46,6 @@ const OPSI = [
 
 const KELAS_INPUT = 'border border-gray-300 dark:border-gray-600 dark:bg-gray-900 rounded-xl px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand-400'
 
-/**
- * Stage 18: filter periode riwayat pesanan - bisa per bulan, minggu, atau
- * hari. `onChange` dipanggil dengan salah satu dari { bulan }, { minggu },
- * { hari } (format yang sudah dimengerti backend - lihat trait
- * FiltersRiwayatPesanan) setiap kali granularitas atau tanggalnya berubah.
- */
 export default function FilterPeriode({ onChange, className = '' }) {
   const [granularitas, setGranularitas] = useState('bulan')
   const [bulan, setBulan] = useState(bulanIni())

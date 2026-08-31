@@ -7,10 +7,6 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-/**
- * Tagihan bulanan toko (Stage 21). Lihat migration 2024_01_05_000003 dan
- * App\Services\TagihanService untuk rumus perhitungannya.
- */
 class Tagihan extends Model
 {
     use HasUuids, MirrorsToSupabase;

@@ -7,9 +7,6 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-/**
- * Analitik pengunjung situs (Stage 25). Lihat migration 2024_01_06_000001.
- */
 class KunjunganSitus extends Model
 {
     use HasUuids, MirrorsToSupabase;

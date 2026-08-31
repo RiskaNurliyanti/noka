@@ -7,19 +7,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Stage 18 (pembatalan pesanan semua role + riwayat per peran):
-     * requirement eksplisit minta setiap pembatalan pesanan punya ALASAN
-     * yang tercatat (pilihannya beda-beda tergantung siapa yang
-     * membatalkan - lihat App\Support\AlasanPembatalan), dan admin/super
-     * admin perlu tahu pesanan dibatalkan oleh peran apa (pembeli/toko/
-     * kurir/admin) buat kelola riwayat per peran serta buat menghitung
-     * batas pembatalan 2x/hari khusus kalau yang membatalkan itu pembeli.
-     *
-     * Kolom status sendiri (dibuat/diproses/selesai/dibatalkan) SUDAH ada
-     * dari migration 2024_01_03_000004 - di sini cuma menambah detail
-     * pembatalannya, bukan mengubah siklus status yang sudah ada.
-     */
+
     public function up(): void
     {
         Schema::table('pesanan', function (Blueprint $table) {

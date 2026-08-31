@@ -23,19 +23,6 @@ class KlaimController extends Controller
         return response()->json(['success' => true, 'message' => 'OK', 'data' => $klaim]);
     }
 
-    /**
-     * Approve klaim. Replikasi PERSIS flow di Section 14 instruksi:
-     * - toko/kurir.user_id di-set ke pengklaim
-     * - user.role diubah ke mitra_toko / mitra_kurir sesuai jenis klaim
-     * - klaim_mitra.status -> approved
-     * Semua dalam satu DB transaction (atomicity) - kalau ada yang gagal,
-     * semua rollback, tidak ada state setengah-jadi (toko punya pemilik
-     * tapi role user belum berubah, atau sebaliknya).
-     *
-     * PENTING: approve toko TIDAK BOLEH mengubah akun kurir, dan sebaliknya
-     * (pesan eksplisit di instruksi) - makanya update role di sini SELALU
-     * spesifik sesuai $klaim->jenis, tidak pernah menyentuh field lain.
-     */
     public function approve(Request $request, string $id): JsonResponse
     {
         $klaim = KlaimMitra::with(['toko', 'kurir', 'user'])->findOrFail($id);

@@ -15,16 +15,7 @@ use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
-    /**
-     * Registrasi email+password. Role SELALU 'pembeli' - tidak bisa
-     * di-override dari input request (lihat RegisterRequest, role
-     * sengaja tidak divalidasi/diterima dari client).
-     *
-     * Stage 4: user TIDAK langsung login setelah register - harus
-     * verifikasi email dulu (lihat login() di bawah, yang menolak akun
-     * belum terverifikasi). Ini menggantikan alur lama yang langsung
-     * bikin sesi begitu register selesai.
-     */
+
     public function register(RegisterRequest $request): JsonResponse
     {
         $data = $request->validated();
@@ -72,10 +63,6 @@ class AuthController extends Controller
         /** @var User $user */
         $user = Auth::guard('web')->user();
 
-        // Stage 4: akun baru wajib verifikasi email dulu sebelum bisa login.
-        // Akun LAMA (dibuat sebelum fitur ini ada) sudah di-set terverifikasi
-        // otomatis lewat migration data (lihat 2024_01_03_000002_...), supaya
-        // tidak ada user existing yang mendadak terkunci dari akunnya sendiri.
         if (! $user->hasVerifiedEmail()) {
             Auth::guard('web')->logout();
             $request->session()->invalidate();

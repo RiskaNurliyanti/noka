@@ -8,17 +8,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-/**
- * Stage 23: halaman diagnostik "Status Database" - bandingkan Neon vs
- * Supabase PER TABEL (dikelompokkan sesuai nama menu di aplikasi) supaya
- * super_admin bisa lihat sendiri data beneran kebaca dari Neon dan beneran
- * ke-mirror ke Supabase. MURNI DIAGNOSTIK - endpoint ini tidak pernah
- * dipakai baca data buat fitur lain, cuma buat halaman ini sendiri.
- *
- * KHUSUS super_admin (sama seperti Audit Log) karena ini expose info
- * teknis infrastruktur (status koneksi database kedua) yang tidak relevan
- * buat admin operasional biasa.
- */
 class StatusDatabaseController extends Controller
 {
     /**

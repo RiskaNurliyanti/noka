@@ -58,9 +58,6 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->notify(new ResetPasswordNotification($token));
     }
 
-    // Override notifikasi verifikasi email bawaan Laravel (yang defaultnya
-    // template polos tanpa branding) - dipakai saat register email/password
-    // (Stage 4: verifikasi email menggantikan login Google).
     public function sendEmailVerificationNotification(): void
     {
         $this->notify(new VerifyEmailNotification);

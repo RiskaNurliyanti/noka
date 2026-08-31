@@ -87,9 +87,6 @@ export const api = {
   delete: (path) => request('DELETE', path),
 }
 
-// Dipakai buat endpoint yang balikin file (mis. export Excel laporan,
-// Stage 17) - beda dari request() biasa yang selalu parse response sebagai
-// JSON. Trigger download otomatis lewat elemen <a> sementara.
 export async function unduhFile(path, namaFileFallback = 'unduhan.xlsx') {
   const res = await fetch(`${API_URL}/api${path}`, {
     method: 'GET',

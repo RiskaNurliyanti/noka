@@ -12,12 +12,6 @@ const UKURAN = {
   lg: 'text-sm px-6 py-3',
 }
 
-/**
- * Tombol dasar NOKA - dipakai di seluruh form (Login, Register, dst).
- * Dibuat baru di Phase 6 karena pola tombol ini terulang di 15+ tempat
- * dengan className hampir identik copy-paste - reuse yang jelas bermanfaat
- * (bukan abstraksi dibuat-buat, sesuai prinsip Section 21).
- */
 export default function Button({ variant = 'primary', size = 'md', full = false, loading = false, disabled, children, className = '', ...props }) {
   return (
     <button

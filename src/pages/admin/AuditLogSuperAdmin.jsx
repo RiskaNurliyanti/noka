@@ -27,11 +27,6 @@ function labelNilai(field, val) {
   return String(val)
 }
 
-/**
- * Stage 21: audit log perubahan pesanan - siapa mengubah apa, kapan,
- * pesanan mana, nilai sebelum & sesudah, plus IP/device. KHUSUS
- * super_admin (route dipasang di grup role:super_admin, bukan role:admin).
- */
 export default function AuditLogSuperAdmin() {
   const { showToast } = useToast()
   const [bulan, setBulan] = useState(bulanIni())

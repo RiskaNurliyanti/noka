@@ -52,8 +52,6 @@ export function AuthProvider({ children }) {
   }
 
   async function register({ nama, email, password, password_confirmation, no_whatsapp }) {
-    // TIDAK setUser() di sini - sejak Stage 4, akun baru wajib verifikasi
-    // email dulu sebelum bisa login, jadi register belum bikin sesi.
     return api.post('/auth/register', { nama, email, password, password_confirmation, no_whatsapp })
   }
 

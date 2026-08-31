@@ -7,15 +7,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Stage 21: tagihan bulanan per toko - dihitung dari jumlah pesanan
-     * SELESAI di bulan itu (lihat App\Services\TagihanService buat rumus
-     * lengkap: Rp5.000 flat mencakup 5 transaksi pertama, transaksi ke-6
-     * dst kena Rp500/transaksi). 1 toko cuma punya 1 baris per periode
-     * (unique toko_id+periode) - dihitung ulang (updateOrCreate) tiap kali
-     * command tagihan:generate jalan, supaya tagihan bulan berjalan selalu
-     * up to date sampai bulan itu benar-benar berakhir.
-     */
+
     public function up(): void
     {
         Schema::create('tagihan', function (Blueprint $table) {

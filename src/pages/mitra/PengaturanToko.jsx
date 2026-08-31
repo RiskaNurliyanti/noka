@@ -20,11 +20,6 @@ import SearchableSelect from '../../components/SearchableSelect'
 import LocationPicker from '../../components/LocationPicker'
 import StatistikHarianChart from '../../components/StatistikHarianChart'
 
-// Stage 11: sebelumnya halaman ini digabung dengan Kelola Menu jadi satu
-// file raksasa (DashboardToko.jsx). Dipisah supaya lebih jelas: halaman ini
-// khusus INFORMASI & PENGATURAN toko (profil, jam operasional, statistik).
-// Untuk kelola produk/menu, lihat KelolaMenu.jsx - endpoint API dan logic
-// CRUD-nya sama persis, cuma dipindah lokasinya di frontend.
 export default function PengaturanToko() {
   const { user } = useAuth()
   const { showToast } = useToast()

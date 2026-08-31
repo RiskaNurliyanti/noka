@@ -7,20 +7,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Stage 17 (Laporan + CRUD berdasarkan role): sebelumnya tabel pesanan
-     * SENGAJA tidak punya kolom status (lihat komentar di migration
-     * 2024_01_01_000012 dan Model Pesanan - "jangan tambah tanpa instruksi
-     * eksplisit"). Sudah dicek dulu, memang belum ada enum/kolom status apa
-     * pun sebelumnya di skema. Requirement Stage 17 secara eksplisit minta
-     * kemampuan mencatat status pesanan (terutama pembatalan manual yang
-     * terjadi di luar sistem lewat WhatsApp), jadi kolom ini ditambahkan
-     * sekarang - BUKAN untuk jadi order-tracking system real-time, tetap
-     * cuma pencatatan status oleh penjual/admin secara manual.
-     *
-     * 4 nilai ini mencakup siklus yang diminta requirement:
-     * dibuat -> diproses -> selesai / dibatalkan.
-     */
+
     public function up(): void
     {
         Schema::table('pesanan', function (Blueprint $table) {

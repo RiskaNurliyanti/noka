@@ -23,12 +23,6 @@ function formatPeriode(p) {
   return new Date(`${tahun}-${bulan}-01`).toLocaleDateString('id-ID', { month: 'long', year: 'numeric' })
 }
 
-/**
- * Stage 21: toko lihat status langganannya (aktif/kadaluarsa, sisa hari,
- * notifikasi kalau mau habis) dan histori tagihan bulanan. Perpanjangan &
- * pembayaran masih manual lewat WhatsApp ke admin - NOKA belum punya
- * payment gateway, jadi halaman ini murni informasi, bukan tempat bayar.
- */
 export default function Langganan() {
   const { showToast } = useToast()
   const [data, setData] = useState(null)

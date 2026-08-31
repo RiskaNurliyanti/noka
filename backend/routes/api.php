@@ -27,10 +27,6 @@ Route::get('/health', function () {
     return response()->json(['success' => true, 'message' => 'NOKA API aktif', 'data' => ['status' => 'ok']]);
 });
 
-// Stage 25: catat kunjungan halaman - publik, tidak perlu login (lihat
-// TrackingController). Rate limit longgar (120/menit per IP) - cukup buat
-// pemakaian wajar navigasi SPA, tapi tetap mencegah endpoint publik ini
-// di-spam.
 Route::post('/tracking', [TrackingController::class, 'catat'])->middleware('throttle:120,1');
 
 /*
@@ -44,14 +40,6 @@ Route::prefix('auth')->group(function () {
     Route::post('/forgot-password', [PasswordResetController::class, 'forgotPassword']);
     Route::post('/reset-password', [PasswordResetController::class, 'resetPassword']);
 
-    // Stage 4: verifikasi email (menggantikan login Google yang sudah dihapus).
-    // TIDAK pakai middleware 'signed' di sini dengan sengaja - kalau
-    // signature invalid/expired, middleware itu akan throw exception yang
-    // ditangkap penanganan error API global (JSON mentah), padahal ini
-    // diklik dari EMAIL/browser dan harus redirect balik ke halaman React
-    // dengan pesan yang jelas. Makanya validasi signature dilakukan manual
-    // di dalam AuthController::verifyEmail() sendiri (pola yang sama seperti
-    // GoogleAuthController lama menangani error dengan redirect ke frontend).
     Route::get('/verify-email/{id}/{hash}', [AuthController::class, 'verifyEmail'])
         ->name('verification.verify');
     Route::post('/verify-email/resend', [AuthController::class, 'resendVerification'])
@@ -109,8 +97,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/review/{jenis}/{id}', [ReviewController::class, 'destroy']);
 
     Route::get('/pesanan-saya', [PesananController::class, 'riwayatSaya']);
-    // Stage 18: pembeli bisa membatalkan (dengan alasan, dibatasi 2x/hari)
-    // atau menyelesaikan pesanan miliknya sendiri.
     Route::put('/pesanan-saya/{id}/batalkan', [PesananController::class, 'batalkan']);
     Route::put('/pesanan-saya/{id}/selesai', [PesananController::class, 'selesaikan']);
     Route::get('/pesanan-notifikasi', [PesananController::class, 'notifikasi']);
@@ -121,7 +107,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/daftar-mitra/toko', [DaftarMitraController::class, 'storeToko']);
     Route::post('/daftar-mitra/kurir', [DaftarMitraController::class, 'storeKurir']);
 
-    // Stage 19: pusat aduan - semua role yang login bisa lapor bug atau pelanggaran.
     Route::post('/laporan', [LaporanController::class, 'store']);
     Route::get('/laporan-saya', [LaporanController::class, 'riwayatSaya']);
 
@@ -169,7 +154,6 @@ Route::middleware(['auth:sanctum', 'role:mitra_kurir'])->prefix('mitra/kurir')->
     Route::post('/notifikasi/tandai-dilihat', [Mitra\KurirController::class, 'tandaiDilihat']);
 });
 
-// Stage 21: toko lihat status langganan & tagihan sendiri.
 Route::middleware(['auth:sanctum', 'role:mitra_toko'])->prefix('mitra')->group(function () {
     Route::get('/langganan', [Mitra\LanggananController::class, 'show']);
 });
@@ -222,7 +206,6 @@ Route::middleware(['auth:sanctum', 'role:admin'])->prefix('admin')->group(functi
     Route::patch('/klaim/{id}/approve', [Admin\KlaimController::class, 'approve']);
     Route::patch('/klaim/{id}/reject', [Admin\KlaimController::class, 'reject']);
 
-    // Stage 19: kelola aduan bug/pelanggaran dari user.
     Route::get('/laporan', [Admin\LaporanController::class, 'index']);
     Route::patch('/laporan/{id}/status', [Admin\LaporanController::class, 'updateStatus']);
 
@@ -235,15 +218,12 @@ Route::middleware(['auth:sanctum', 'role:admin'])->prefix('admin')->group(functi
     Route::get('/produk-terlaris', [Admin\StatistikController::class, 'produkTerlaris']);
     Route::get('/penjualan-harian', [Admin\StatistikController::class, 'penjualanHarian']);
 
-    // Stage 21: langganan & tagihan toko - soal pendapatan NOKA dari toko
-    // (bukan data penjualan toko itu sendiri), jadi tetap boleh diakses admin biasa.
     Route::get('/langganan', [Admin\LanggananController::class, 'index']);
     Route::get('/langganan/notifikasi-jumlah', [Admin\LanggananController::class, 'jumlahNotifikasi']);
     Route::post('/langganan/{tokoId}/perpanjang', [Admin\LanggananController::class, 'perpanjang']);
     Route::post('/langganan/{tokoId}/hitung-tagihan', [Admin\LanggananController::class, 'hitungTagihan']);
     Route::patch('/tagihan/{tagihanId}/lunas', [Admin\LanggananController::class, 'tandaiLunas']);
 
-    // Stage 25: analitik pengunjung situs - metrik engagement platform, bukan data penjualan toko.
     Route::get('/analitik', [Admin\AnalitikController::class, 'ringkasan']);
 
     // Notifikasi lonceng admin/super admin - konsolidasi & bisa ditandai dibaca (lihat NotifikasiController).
@@ -262,9 +242,7 @@ Route::middleware(['auth:sanctum', 'role:super_admin'])->prefix('admin')->group(
     Route::post('/pengaturan/tes-email', [Admin\PengaturanController::class, 'testEmail']);
     Route::get('/log-aktivitas', [Admin\LogAktivitasController::class, 'index']);
 
-    // Stage 21: audit log perubahan pesanan - KHUSUS super_admin (bukan admin biasa).
     Route::get('/audit-log', [Admin\AuditLogController::class, 'index']);
 
-    // Stage 23: diagnostik dual-write Neon vs Supabase - KHUSUS super_admin.
     Route::get('/status-database', [Admin\StatusDatabaseController::class, 'index']);
 });

@@ -64,10 +64,6 @@ export default function KelolaToko() {
     setTotalPages(Math.max(1, t.data?.last_page || 1))
   }
 
-  // Stage 8: sebelumnya fetch sampai 500 toko sekaligus lalu difilter+slice
-  // di client. Sekarang backend yang paginasi & filter (endpoint ini sudah
-  // dukung param 'q' dan 'status_verifikasi'), jadi cuma data 1 halaman yang
-  // benar-benar diambil. Debounce + guard request sama seperti TokoList.jsx.
   useEffect(() => {
     const id = requestId.current + 1
     requestId.current = id

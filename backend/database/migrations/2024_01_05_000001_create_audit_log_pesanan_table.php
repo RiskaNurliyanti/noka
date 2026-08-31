@@ -7,18 +7,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Stage 21: audit log KHUSUS perubahan pesanan (status/alasan
-     * pembatalan) - siapa (user_id+role), kapan (created_at), pesanan mana
-     * (pesanan_id), nilai sebelum & sesudah (jsonb), plus IP/device buat
-     * keperluan keamanan kalau ada sengketa/kecurigaan. Hanya bisa dilihat
-     * super_admin (lihat routes/api.php - role:super_admin, BUKAN role:admin
-     * biasa, beda dari kebanyakan fitur admin lain).
-     *
-     * pesanan_id & user_id nullOnDelete (bukan cascade) - audit log HARUS
-     * tetap ada walau pesanan/user-nya sudah dihapus, itu justru inti dari
-     * audit trail (jangan sampai hapus akun = hapus jejak).
-     */
+
     public function up(): void
     {
         Schema::create('audit_log_pesanan', function (Blueprint $table) {

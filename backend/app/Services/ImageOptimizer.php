@@ -2,26 +2,6 @@
 
 namespace App\Services;
 
-/**
- * Stage 20 (kualitas foto HD): foto yang diupload user (dari HP, kamera,
- * dsb) kadang beresolusi SANGAT besar (4000px+) atau justru diupload apa
- * adanya tanpa kompresi yang wajar. Service ini menstandarkan foto yang
- * masuk supaya tetap tajam/HD saat ditampilkan tapi tidak membengkak:
- *
- * - Foto yang lebih besar dari MAX_DIMENSI di-resize turun (sisi terpanjang
- *   dipotong ke MAX_DIMENSI px, rasio aspek dipertahankan) - TIDAK PERNAH
- *   di-upscale (foto kecil dibiarkan apa adanya, upscale cuma bikin buram).
- * - Disimpan ulang dengan kualitas tinggi (JPEG quality 90, PNG compression
- *   level ringan) - jauh di atas kompresi default kamera HP kebanyakan,
- *   supaya hasil akhir terlihat jernih di ProductCard/StoreCard/galeri.
- * - Orientasi EXIF (dari foto kamera HP yang sering "kesimpan miring")
- *   diperbaiki otomatis sebelum resize.
- *
- * Pakai GD (extension bawaan PHP) bukan Intervention Image - supaya tidak
- * butuh composer install paket baru yang belum ada di composer.lock.
- * Kalau GD tidak tersedia atau file gagal diproses, GAGAL SENYAP (biarkan
- * file asli apa adanya) - optimasi foto tidak boleh menggagalkan upload.
- */
 class ImageOptimizer
 {
     private const MAX_DIMENSI = 2000; // px, sisi terpanjang

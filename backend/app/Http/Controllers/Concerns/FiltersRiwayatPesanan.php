@@ -5,21 +5,9 @@ namespace App\Http\Controllers\Concerns;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-/**
- * Stage 18: riwayat pesanan (pembeli, kurir, penjual, admin/super_admin)
- * semuanya perlu bisa difilter per bulan/minggu/hari, plus pencarian bebas
- * - trait ini menyatukan logikanya supaya konsisten di semua controller,
- * bukan disalin-tempel beda-beda di tiap tempat.
- */
 trait FiltersRiwayatPesanan
 {
-    /**
-     * Filter periode. Prioritas kalau lebih dari satu parameter dikirim
-     * (harusnya tidak terjadi dari UI, tapi dijaga di sini juga):
-     * 'hari' (tanggal spesifik, format 'YYYY-MM-DD') paling spesifik,
-     * lalu 'minggu' (format 'YYYY-MM-DD' = tanggal Senin awal minggu itu),
-     * lalu 'bulan' (format 'YYYY-MM', sudah ada sejak Stage 17).
-     */
+
     protected function filterPeriode(Request $request, $query)
     {
         if ($request->filled('hari')) {

@@ -8,11 +8,6 @@ use App\Models\Toko;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-/**
- * Pengajuan klaim toko/kurir oleh user yang login. Approval TETAP di tangan
- * admin/super_admin (Admin\KlaimController) - menekan tombol klaim TIDAK
- * langsung mengubah role atau kepemilikan apa pun (Section 14 instruksi).
- */
 class KlaimController extends Controller
 {
     public function store(Request $request): JsonResponse

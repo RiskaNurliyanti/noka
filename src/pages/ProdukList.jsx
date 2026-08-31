@@ -32,10 +32,6 @@ export default function ProdukList() {
   // 5 kategori lama yang mungkin nggak sebanyak itu di kategori baru.
   useEffect(() => { setPage(1) }, [kategoriId, modeDiskon])
 
-  // Stage 8: debounce 400ms + guard nomor urut request, sama seperti
-  // perbaikan TokoList.jsx (Stage 5) - ngetik cepat di kolom cari tidak lagi
-  // nembak request per huruf & tidak ada race condition response basi
-  // menimpa hasil yang lebih baru.
   useEffect(() => {
     const id = requestId.current + 1
     requestId.current = id

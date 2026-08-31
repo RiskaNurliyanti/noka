@@ -8,13 +8,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
-/**
- * Stage 21: catat siapa mengubah apa pada pesanan mana, kapan, nilai
- * sebelum & sesudah, plus IP/device - dipanggil dari SEMUA controller yang
- * bisa mengubah status pesanan (pembeli, toko, kurir, admin/super_admin).
- * Kegagalan mencatat audit TIDAK BOLEH menggagalkan aksi utama (update
- * status pesanan tetap jalan walau audit log gagal ditulis).
- */
 class AuditLogger
 {
     public static function catatPesanan(

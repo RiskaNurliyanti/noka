@@ -9,11 +9,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
-/**
- * Section 17: status_verifikasi, status_aktif, dan (lewat KlaimController)
- * status klaim adalah TIGA hal terpisah - jangan digabung jadi satu field.
- * status_buka dikelola mitra sendiri (Mitra\TokoController), bukan di sini.
- */
 class TokoController extends Controller
 {
     public function index(Request $request): JsonResponse
@@ -33,11 +28,6 @@ class TokoController extends Controller
         return response()->json(['success' => true, 'message' => 'OK', 'data' => $toko]);
     }
 
-    /**
-     * Admin input toko baru TANPA pemilik (user_id null) - fondasi
-     * mekanisme klaim (Section 10-14). Toko yang diinput admin otomatis
-     * approved karena admin yang input langsung, bukan pengajuan mitra.
-     */
     public function store(Request $request): JsonResponse
     {
         $data = $this->validatedData($request);
@@ -72,11 +62,6 @@ class TokoController extends Controller
         $sebelumnyaApproved = $toko->status_verifikasi === 'approved';
         $toko->update($data);
 
-        // Stage 21: toko yang BARU disetujui (belum pernah approved
-        // sebelumnya) otomatis dapat masa percobaan langganan 30 hari,
-        // supaya toko baru tidak langsung kena tagihan sebelum sempat
-        // jualan. Toko yang statusnya cuma "disegarkan" (sudah pernah
-        // approved) tidak dapat percobaan baru lagi.
         if ($data['status_verifikasi'] === 'approved' && ! $sebelumnyaApproved) {
             Langganan::firstOrCreate(
                 ['toko_id' => $toko->id],

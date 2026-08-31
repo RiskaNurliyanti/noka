@@ -1,12 +1,6 @@
 import { useState } from 'react'
 import { LABEL_ALASAN_PEMBATALAN } from '../lib/alasanPembatalan'
 
-/**
- * Stage 18: modal pilih alasan pembatalan pesanan. `opsiAlasan` = daftar
- * key alasan yang boleh dipilih (beda-beda tergantung role - lihat
- * lib/alasanPembatalan.js), `onKonfirmasi(alasan)` dipanggil begitu user
- * pilih alasan dan menekan tombol konfirmasi.
- */
 export default function ModalAlasanPembatalan({ opsiAlasan, onKonfirmasi, onBatal, loading }) {
   const [alasan, setAlasan] = useState('')
 

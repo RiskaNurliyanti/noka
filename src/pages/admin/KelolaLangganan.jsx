@@ -23,12 +23,6 @@ function formatTanggal(t) {
   return new Date(t).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })
 }
 
-/**
- * Stage 21: admin & super_admin kelola langganan+tagihan SEMUA toko -
- * jumlah transaksi & biaya di sini soal toko BAYAR ke NOKA (pendapatan
- * platform), bukan data penjualan toko ke pelanggannya, jadi tetap boleh
- * dilihat admin biasa (lihat catatan di Admin\LanggananController).
- */
 export default function KelolaLangganan() {
   const { showToast } = useToast()
   const [bulan, setBulan] = useState(bulanIni())

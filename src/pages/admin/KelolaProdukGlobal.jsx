@@ -61,13 +61,6 @@ export default function KelolaProdukGlobal() {
     setTotalPages(Math.max(1, res.data?.last_page || 1))
   }
 
-  // Stage 8: sebelumnya fetch SEMUA produk sekaligus (per_page=1000) lalu
-  // di-slice di client - berat banget begitu jumlah produk NOKA membesar.
-  // Sekarang halaman & pencarian dikirim ke backend (yang sudah mendukung
-  // paginate() + filter 'q'), jadi cuma data yang benar-benar ditampilkan
-  // yang diambil. Debounce 400ms + guard nomor urut request sama seperti
-  // perbaikan TokoList.jsx (Stage 5) - supaya ngetik cepat di kolom cari
-  // tidak bikin response saling susul dan flicker.
   useEffect(() => {
     const id = requestId.current + 1
     requestId.current = id

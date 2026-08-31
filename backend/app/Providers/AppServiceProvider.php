@@ -16,9 +16,6 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        // Aturan password default dipakai di semua Password::defaults() -
-        // RegisterRequest & ResetPasswordRequest. Minimum 8 karakter sesuai
-        // instruksi Section 9 ("password minimum sesuai konfigurasi aplikasi").
         Password::defaults(function () {
             return Password::min(8)->letters()->numbers();
         });

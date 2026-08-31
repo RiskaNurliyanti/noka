@@ -19,11 +19,6 @@ import SearchableSelect from '../../components/SearchableSelect'
 
 const PER_HALAMAN = 6
 
-// Stage 11: sebelumnya halaman ini digabung dengan Pengaturan Toko jadi satu
-// file raksasa (DashboardToko.jsx). Dipisah supaya lebih jelas: halaman ini
-// khusus KELOLA MENU/PRODUK. Untuk info & pengaturan toko, lihat
-// PengaturanToko.jsx - endpoint API dan logic CRUD-nya sama persis, cuma
-// dipindah lokasinya di frontend.
 export default function KelolaMenu() {
   const { user } = useAuth()
   const { showToast } = useToast()

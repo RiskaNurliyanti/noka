@@ -103,11 +103,7 @@ class PesananController extends Controller
      * Riwayat pesanan milik pembeli yang sedang login (guest tidak punya
      * riwayat tersimpan di akun - sesuai sifat guest checkout).
      */
-    /**
-     * Stage 18: riwayat pesanan pembeli sekarang bisa difilter per
-     * bulan/minggu/hari dan dicari bebas (nama toko/kurir/produk) - dulu
-     * cuma daftar polos tanpa filter sama sekali.
-     */
+
     public function riwayatSaya(Request $request): JsonResponse
     {
         $query = Pesanan::with(['item.produk', 'toko', 'kurir'])
@@ -140,13 +136,6 @@ class PesananController extends Controller
             ->count();
     }
 
-    /**
-     * Pembeli membatalkan pesanan miliknya sendiri (Stage 18). Alasan WAJIB
-     * salah satu dari AlasanPembatalan::UNTUK_PEMBELI (ganti toko lain /
-     * tidak jadi beli / toko tutup - BUKAN alasan milik toko/kurir seperti
-     * "stok tidak tersedia" atau "kurir libur"). Dibatasi 2x/hari khusus
-     * pembatalan yang diinisiasi pembeli sendiri.
-     */
     public function batalkan(Request $request, string $id): JsonResponse
     {
         $user = $request->user();
@@ -182,11 +171,6 @@ class PesananController extends Controller
         return response()->json(['success' => true, 'message' => 'Pesanan dibatalkan', 'data' => $pesanan]);
     }
 
-    /**
-     * Pembeli menandai pesanan miliknya sendiri selesai (Stage 18) - mis.
-     * begitu pesanan sudah diterima/diambil. Sama seperti toko & kurir,
-     * pembeli juga berwenang menyelesaikan pesanan sendiri.
-     */
     public function selesaikan(Request $request, string $id): JsonResponse
     {
         $user = $request->user();
@@ -207,15 +191,6 @@ class PesananController extends Controller
         return response()->json(['success' => true, 'message' => 'Pesanan ditandai selesai', 'data' => $pesanan]);
     }
 
-    /**
-     * Notifikasi perubahan status pesanan untuk pembeli - begitu penjual/
-     * admin/kurir mengubah status pesanan mereka (terutama dibatalkan),
-     * pembeli perlu tahu lewat NOKA, bukan cuma nunggu WhatsApp manual.
-     * Pola sama seperti notifikasi kurir (Stage 16): bandingkan timestamp
-     * "terakhir dilihat" dengan updated_at pesanan, bukan tabel notifikasi
-     * terpisah. Status 'dibuat' TIDAK dihitung sebagai "perubahan" karena
-     * itu status awal saat pesanan pertama kali dibuat, bukan update.
-     */
     public function notifikasi(Request $request): JsonResponse
     {
         $user = $request->user();

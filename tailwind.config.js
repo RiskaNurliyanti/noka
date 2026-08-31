@@ -14,10 +14,6 @@ export default {
           600: '#164a7c',
           700: '#123c64',
         },
-        // Mustard gold - aksen promo/highlight, dipakai secukupnya.
-        // Diganti dari terracotta (Stage 13) - kombinasi biru+mustard lebih
-        // punya kesan "artisan/lokal", cocok untuk marketplace UMKM, dan
-        // tidak umum dipakai jadi tidak terkesan template generik.
         accent: {
           50: '#fdf7e7',
           100: '#f7e8c1',

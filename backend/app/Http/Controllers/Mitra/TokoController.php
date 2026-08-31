@@ -62,9 +62,6 @@ class TokoController extends Controller
             'jam_tutup' => ['nullable', 'date_format:H:i'],
         ]);
 
-        // status_verifikasi & status_aktif SENGAJA tidak ada di rules di atas -
-        // mitra tidak boleh ubah status verifikasi/aktif toko sendiri, itu
-        // wewenang admin (Section 16-18 instruksi).
         $toko->update($data);
 
         return response()->json(['success' => true, 'message' => 'Toko berhasil diperbarui', 'data' => $toko]);
@@ -102,13 +99,6 @@ class TokoController extends Controller
         return response()->json(['success' => true, 'message' => 'OK', 'data' => $stats]);
     }
 
-    /**
-     * Data harian jumlah pesanan (14 hari terakhir) buat diagram statistik
-     * di dashboard penjual (Stage 12). Data aktual dari tabel 'pesanan',
-     * BUKAN dari VIEW toko_stats (yang cuma total keseluruhan, bukan
-     * time-series). Hari tanpa pesanan tetap muncul dengan nilai 0 supaya
-     * diagramnya kontinu 14 hari penuh, bukan bolong-bolong.
-     */
     public function statsHarian(Request $request): JsonResponse
     {
         $toko = $request->user()->toko()->first();

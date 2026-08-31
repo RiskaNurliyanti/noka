@@ -7,11 +7,6 @@ use App\Models\AuditLogPesanan;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-/**
- * Stage 21: audit log perubahan pesanan - HANYA super_admin (lihat
- * routes/api.php, dipasang di grup role:super_admin, BUKAN role:admin).
- * Bisa dicari bebas, difilter per bulan, dan per toko.
- */
 class AuditLogController extends Controller
 {
     public function index(Request $request): JsonResponse

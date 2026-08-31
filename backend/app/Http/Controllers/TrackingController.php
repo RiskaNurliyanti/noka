@@ -6,15 +6,6 @@ use App\Models\KunjunganSitus;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-/**
- * Stage 25: catat kunjungan halaman - dipanggil frontend tiap kali route
- * berpindah (lihat src/lib/tracking.js). TIDAK PERLU login - pengunjung
- * anonim tetap tercatat lewat `sesi_id` yang dibuat sekali di browser
- * (localStorage), bukan cookie/tracker pihak ketiga.
- *
- * Endpoint ini SENGAJA dibuat seringan mungkin (cuma insert 1 baris, tidak
- * ada query berat) karena dipanggil di HAMPIR SETIAP perpindahan halaman.
- */
 class TrackingController extends Controller
 {
     public function catat(Request $request): JsonResponse

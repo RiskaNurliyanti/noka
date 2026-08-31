@@ -44,23 +44,6 @@ class Toko extends Model
         ];
     }
 
-    /**
-     * Status buka REAL-TIME yang dilihat pembeli - beda dengan status_buka
-     * (toggle manual mitra). Aturan:
-     *  - Toggle manual mitra tetap prioritas utama: kalau mitra matikan
-     *    manual (status_buka=false), toko SELALU dianggap tutup, apapun
-     *    jam operasionalnya - mitra mungkin sengaja tutup lebih awal
-     *    (kehabisan stok, dsb), bukan cuma soal jam.
-     *  - Kalau jam_buka/jam_tutup tidak diisi (opsional, lihat Stage 9),
-     *    tidak ada dasar untuk auto-tutup - ikuti toggle manual apa adanya.
-     *  - Kalau toggle manual "buka" TAPI waktu sekarang di luar rentang
-     *    jam operasional, otomatis dianggap tutup.
-     *  - Menangani toko yang buka lewat tengah malam (mis. jam_buka 20:00,
-     *    jam_tutup 02:00) - rentang "wrap around" tengah malam.
-     *  - Pakai timezone eksplisit 'Asia/Makassar', BUKAN mengubah
-     *    config('app.timezone') secara global - supaya tidak berdampak ke
-     *    timestamp lain (created_at pesanan, dsb) di seluruh aplikasi.
-     */
     protected function sedangBuka(): Attribute
     {
         return Attribute::make(
@@ -124,9 +107,6 @@ class Toko extends Model
         return $this->hasMany(KunjunganToko::class);
     }
 
-    // Stage 21: fitur langganan - 1 toko punya 1 baris langganan aktif
-    // (diperpanjang, bukan histori per periode) + banyak baris tagihan
-    // (histori tagihan per bulan, lihat App\Models\Tagihan).
     public function langganan(): HasOne
     {
         return $this->hasOne(Langganan::class);

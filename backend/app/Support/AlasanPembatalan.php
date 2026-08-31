@@ -2,19 +2,6 @@
 
 namespace App\Support;
 
-/**
- * Daftar alasan pembatalan pesanan per role (Stage 18). Dipakai supaya
- * validasi alasan pembatalan KONSISTEN di semua controller yang bisa
- * membatalkan pesanan (pembeli, penjual/toko, kurir, admin & super_admin):
- *
- * - Toko: toko tutup, atau stok pesanan tidak tersedia (untuk toko).
- * - Kurir: kurir libur, toko tutup, atau stok pesanan tidak tersedia
- *   (untuk kurir - kurir kadang tahu duluan sebelum toko konfirmasi).
- * - Pembeli: mau ganti pesanan di toko lain, tidak jadi membeli, atau
- *   toko tutup.
- * - Admin/super_admin: SEMUA pilihan di atas tersedia (union, tanpa
- *   duplikat) - admin boleh mencatat pembatalan atas nama peran mana pun.
- */
 class AlasanPembatalan
 {
     public const TOKO_TUTUP = 'toko_tutup';

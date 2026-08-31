@@ -12,16 +12,6 @@ use App\Models\Toko;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-/**
- * Satu controller menangani 3 tabel review terpisah (produk/toko/kurir) -
- * bukan digabung jadi satu tabel polymorphic, sesuai keputusan audit
- * (menghindari refactor besar tanpa alasan teknis kuat).
- *
- * Stage 2 fix: review sekarang WAJIB terikat ke pesanan (pesanan_id) yang
- * memang berisi target yang direview, dan dibatasi max 1x update. Validasi
- * dilakukan di backend (bukan cuma disembunyikan di frontend) karena API
- * tetap bisa dipanggil langsung.
- */
 class ReviewController extends Controller
 {
     private function rules(): array

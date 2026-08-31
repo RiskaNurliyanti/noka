@@ -53,18 +53,6 @@ class UserController extends Controller
         return response()->json(['success' => true, 'message' => 'Profil pengguna diperbarui', 'data' => $target]);
     }
 
-    /**
-     * Ubah role user. Authorization detail (Section 16 instruksi):
-     * - Admin biasa HANYA boleh set role ke: pembeli, mitra_toko, mitra_kurir.
-     *   Admin TIDAK BOLEH menaikkan siapa pun (termasuk dirinya sendiri) ke
-     *   admin atau super_admin - itu wewenang super_admin saja.
-     * - Super_admin boleh set role apa saja, termasuk admin/super_admin lain.
-     * - Kalau role diubah dari mitra_toko/mitra_kurir ke role lain, toko/kurir
-     *   yang dipegang user itu dilepas (user_id = null) - replikasi persis
-     *   logic KelolaPengguna.jsx lama, dalam DB transaction.
-     * Semua pengecekan ini di BACKEND, bukan cuma sembunyikan tombol frontend
-     * (instruksi eksplisit Section 16).
-     */
     public function updateRole(Request $request, string $id): JsonResponse
     {
         $actor = $request->user();

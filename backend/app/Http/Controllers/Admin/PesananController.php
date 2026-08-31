@@ -15,21 +15,10 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
-/**
- * Laporan pesanan & update status untuk ADMIN/SUPER ADMIN (Stage 17).
- * Beda dengan Mitra\PesananController yang selalu dibatasi ke toko
- * sendiri, di sini admin bisa lihat SEMUA toko (tanpa filter toko_id) atau
- * toko tertentu (dengan filter toko_id) - sesuai tabel permission di
- * requirement.
- */
 class PesananController extends Controller
 {
     use FiltersRiwayatPesanan;
 
-    /**
-     * Search bebas (Stage 13.5) - nama pembeli (user login/guest) atau
-     * nama produk di dalam pesanan.
-     */
     private function filterCari(Request $request, $query)
     {
         if ($request->filled('q')) {
@@ -44,12 +33,6 @@ class PesananController extends Controller
         return $query;
     }
 
-    /**
-     * Stage 18: admin/super_admin sekarang bisa kelola riwayat pesanan
-     * per PERAN (toko_id = penjual tertentu, kurir_id = kurir tertentu,
-     * pembeli_id = pembeli tertentu) sekaligus per periode (bulan/minggu/
-     * hari) - dulu cuma bisa filter toko_id + bulan.
-     */
     public function index(Request $request): JsonResponse
     {
         $query = Pesanan::with(['item.produk', 'toko:id,nama_toko', 'kurir:id,nama_layanan', 'pembeli:id,nama']);
@@ -88,13 +71,7 @@ class PesananController extends Controller
      * sama seperti Mitra\PesananController::updateStatus() tapi tanpa
      * batasan toko (admin boleh ubah pesanan toko manapun).
      */
-    /**
-     * Stage 18: admin/super_admin bisa membatalkan pesanan dengan alasan
-     * APA SAJA (AlasanPembatalan::UNTUK_ADMIN - union semua alasan milik
-     * toko/kurir/pembeli), sesuai requirement "untuk admin dan super admin
-     * semua pilihan pembatalan tersedia". Alasan WAJIB diisi kalau status
-     * di-set 'dibatalkan'.
-     */
+
     public function updateStatus(Request $request, string $id): JsonResponse
     {
         $pesanan = Pesanan::find($id);

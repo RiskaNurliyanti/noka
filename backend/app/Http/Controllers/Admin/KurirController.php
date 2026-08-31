@@ -11,12 +11,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
-/**
- * Section 18: pola sama seperti Admin\TokoController - status verifikasi,
- * status klaim, status aktif dipisah. Logic kurir TIDAK bergantung pada
- * logic toko (instruksi eksplisit), makanya controller ini berdiri sendiri,
- * tidak mewarisi/reuse dari TokoController meski mirip.
- */
 class KurirController extends Controller
 {
     public function index(Request $request): JsonResponse

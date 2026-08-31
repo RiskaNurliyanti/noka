@@ -7,10 +7,6 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-/**
- * Audit log perubahan pesanan (Stage 21). Lihat migration
- * 2024_01_05_000001 dan App\Services\AuditLogger.
- */
 class AuditLogPesanan extends Model
 {
     use HasUuids, MirrorsToSupabase;

@@ -7,21 +7,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Stage 19: pusat aduan - SEMUA role (pembeli, mitra_toko, mitra_kurir,
-     * bahkan admin) bisa lapor kalau nemu BUG di aplikasi atau PELANGGARAN
-     * (mis. toko/kurir/pembeli lain berlaku curang di luar sistem). Laporan
-     * masuk ke admin & super_admin buat ditindaklanjuti - bukan pengganti
-     * moderasi review (itu udah ada di review_produk/toko/kurir), ini murni
-     * saluran aduan bebas dengan judul+deskripsi.
-     *
-     * target_jenis/target_id OPSIONAL - dipakai kalau laporan menunjuk ke
-     * entitas tertentu (mis. toko X, pesanan Y). Sengaja TIDAK pakai foreign
-     * key ke banyak tabel sekaligus (toko/kurir/produk/pesanan/users) -
-     * cukup simpan id polos + label jenisnya, supaya laporan tetap valid
-     * walau entitas yang dilaporkan nanti dihapus (riwayat aduan tidak
-     * boleh ikut hilang).
-     */
+
     public function up(): void
     {
         Schema::create('laporan_pengguna', function (Blueprint $table) {

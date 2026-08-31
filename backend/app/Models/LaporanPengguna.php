@@ -7,11 +7,6 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-/**
- * Aduan bug/pelanggaran dari user ke admin (Stage 19). Lihat migration
- * 2024_01_04_000002 untuk alasan desain target_jenis/target_id polos
- * (bukan foreign key banyak tabel).
- */
 class LaporanPengguna extends Model
 {
     use HasUuids, MirrorsToSupabase;

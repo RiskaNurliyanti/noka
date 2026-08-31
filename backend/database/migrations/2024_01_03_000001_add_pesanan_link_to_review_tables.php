@@ -7,17 +7,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Perbaikan Stage 2 (Sistem Review): tabel review sebelumnya TIDAK
-     * terhubung ke pesanan sama sekali, jadi tidak ada cara memvalidasi
-     * "1 review per pesanan yang memenuhi syarat" atau membatasi update
-     * jadi cuma 1x. Ini nambah kolom seminimal mungkin, tetap kompatibel
-     * dengan review lama:
-     *  - pesanan_id: NULLABLE (review lama dibiarkan apa adanya / "grandfathered",
-     *    tidak dipaksa isi retroaktif karena datanya memang tidak ada).
-     *  - update_count: dipakai enforce "1x update per review" (bukan pakai
-     *    updated_at karena model review pakai $timestamps = false).
-     */
+
     public function up(): void
     {
         $map = [

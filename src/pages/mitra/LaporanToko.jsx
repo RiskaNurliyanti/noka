@@ -22,11 +22,6 @@ function bulanIni() {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`
 }
 
-// Stage 17: laporan pesanan toko sendiri, filter periode, export Excel, dan
-// update status (dipakai penjual buat catat pembatalan manual dari
-// WhatsApp - BUKAN sistem pembatalan WhatsApp baru, cuma pencatatan status
-// yang sudah terjadi di luar sistem).
-// Stage 18: membatalkan pesanan sekarang wajib menyertakan alasan.
 export default function LaporanToko() {
   const { showToast } = useToast()
   const [periode, setPeriode] = useState({ bulan: bulanIni() })
@@ -78,8 +73,6 @@ export default function LaporanToko() {
     }
   }
 
-  // Stage 18: kalau dipilih 'dibatalkan', jangan langsung panggil API - minta
-  // alasan dulu lewat modal (backend mewajibkan alasan_pembatalan).
   function pilihStatus(id, status) {
     if (status === 'dibatalkan') {
       setPesananDibatalkan(id)

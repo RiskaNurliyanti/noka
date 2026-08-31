@@ -60,13 +60,6 @@ export default function SafeImage({ src, alt = '', className = '', iconClassName
 
   return (
     <img
-      // Stage 20: 'async' decoding + loading="lazy" default supaya foto HD
-      // dari server tidak diturunkan kualitasnya lagi saat di-downscale CSS
-      // oleh browser (mis. foto besar ditampilkan di kotak kecil
-      // ProductCard) - foto tetap tajam, bukan pecah/blur. {...props}
-      // diletakkan SETELAH default ini supaya caller yang sengaja override
-      // loading/style/decoding sendiri (mis. foto hero pakai loading="eager")
-      // tetap menang.
       decoding="async"
       loading="lazy"
       style={{ imageRendering: 'auto' }}

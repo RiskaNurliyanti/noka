@@ -17,8 +17,6 @@ const LABEL_STATUS = { dibuat: 'Dibuat', diproses: 'Diproses', selesai: 'Selesai
 const WARNA_STATUS = { dibuat: 'gray', diproses: 'brand', selesai: 'green', dibatalkan: 'red' }
 const OPSI_STATUS = Object.keys(LABEL_STATUS)
 
-// Stage 18: admin/super_admin kelola riwayat pesanan per PERAN (toko/
-// kurir/pembeli) - "semua" berarti tidak difilter peran sama sekali.
 const OPSI_PERAN = [
   { value: 'semua', label: 'Semua peran' },
   { value: 'penjual', label: 'Penjual (toko)' },
@@ -26,10 +24,6 @@ const OPSI_PERAN = [
   { value: 'pembeli', label: 'Pembeli' },
 ]
 
-// Stage 17: laporan pesanan SELURUH toko (atau toko tertentu) untuk
-// admin/super_admin. Beda dari LaporanToko.jsx (mitra) yang selalu
-// dibatasi ke toko sendiri - di sini ada dropdown pilih toko, kosong
-// berarti "semua toko".
 export default function LaporanAdmin() {
   const { showToast } = useToast()
   const [periode, setPeriode] = useState({})
@@ -113,8 +107,6 @@ export default function LaporanAdmin() {
     }
   }
 
-  // Stage 18: admin boleh pakai alasan APA SAJA, tapi tetap wajib diisi
-  // kalau status di-set 'dibatalkan' - jangan langsung panggil API.
   function pilihStatus(id, status) {
     if (status === 'dibatalkan') {
       setPesananDibatalkan(id)

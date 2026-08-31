@@ -8,13 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-/**
- * NOKA tidak proses pembayaran/pengiriman in-app - checkout cuma generate
- * link WhatsApp. Kolom 'status' (Stage 17) BUKAN buat jadi order-tracking
- * real-time - itu tetap di luar scope NOKA. Statusnya cuma pencatatan
- * manual oleh penjual/admin, terutama untuk merekam pembatalan yang
- * terjadi di luar sistem (lewat chat WhatsApp langsung ke toko).
- */
 class Pesanan extends Model
 {
     use HasUuids, MirrorsToSupabase;
@@ -40,9 +33,6 @@ class Pesanan extends Model
     // Status yang sudah final - tidak bisa diubah/dibatalkan/diselesaikan lagi.
     public const STATUS_FINAL = ['selesai', 'dibatalkan'];
 
-    // Stage 22: daftar kolom yang di-mirror ke Supabase (DualWriteMirror) -
-    // sengaja whitelist eksplisit, bukan getFillable()/toArray(), supaya
-    // tidak ikut menyalin relasi yang sedang di-eager-load di request itu.
     public const KOLOM_MIRROR = [
         'id', 'pembeli_id', 'guest_nama', 'guest_whatsapp', 'toko_id', 'kurir_id',
         'total_harga', 'alamat_antar', 'catatan', 'status',

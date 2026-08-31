@@ -14,22 +14,7 @@ use Illuminate\Support\Str;
 
 class PasswordResetController extends Controller
 {
-    /**
-     * Kirim link reset password. Response SELALU sukses generik, tidak
-     * peduli email terdaftar atau tidak - supaya tidak membocorkan email
-     * mana yang punya akun NOKA (sesuai instruksi Section 9: "tidak
-     * membocorkan apakah email tertentu terdaftar").
-     *
-     * Password::sendResetLink() dibungkus try-catch - kalau server SMTP
-     * gagal (kredensial salah, server mail down, dsb), Laravel melempar
-     * exception dari dalam pengiriman mail SYNCHRONOUS ini, yang tanpa
-     * try-catch akan (1) membocorkan detail teknis SMTP mentah ke response
-     * API, dan (2) membatalkan janji "response selalu generik" di atas -
-     * pengguna jadi bisa membedakan email terdaftar/tidak dari ada-tidaknya
-     * error 500. Exception dicatat ke log server buat admin, TAPI response
-     * ke pengguna tetap pesan generik yang sama persis seperti kalau
-     * berhasil.
-     */
+
     public function forgotPassword(ForgotPasswordRequest $request): JsonResponse
     {
         try {

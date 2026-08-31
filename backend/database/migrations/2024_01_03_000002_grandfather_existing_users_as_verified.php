@@ -5,16 +5,7 @@ use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
-    /**
-     * Stage 4: login sekarang mensyaratkan email_verified_at terisi.
-     * Tanpa migration ini, SEMUA user yang sudah ada (dibuat sebelum fitur
-     * ini ada, baik lewat email/password maupun Google) akan mendadak
-     * tidak bisa login sama sekali karena email_verified_at mereka NULL -
-     * itu jelas melanggar instruksi "tetap kompatibel dengan data lama".
-     * Jadi user existing di-grandfather jadi terverifikasi otomatis;
-     * hanya pendaftar BARU (setelah migration ini jalan) yang wajib
-     * verifikasi email dulu.
-     */
+
     public function up(): void
     {
         DB::table('users')

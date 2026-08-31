@@ -47,17 +47,6 @@ export default function KelolaPengguna() {
   const [editId, setEditId] = useState(null)
   const [editForm, setEditForm] = useState({ nama: '', no_whatsapp: '' })
 
-  // CATATAN Stage 8: fetch di sini TIDAK diubah jadi server-side pagination
-  // seperti halaman lain, dengan sengaja. Alasannya: pembatasan "Admin
-  // Website tidak boleh lihat akun admin/super_admin" saat ini murni filter
-  // di CLIENT (baris 'daftarDasar' di bawah) - endpoint /admin/users belum
-  // menegakkan pembatasan itu di query-nya sendiri. Mengubah ini jadi
-  // pagination server-side butuh backend juga tahu "role apa yang boleh
-  // dilihat role peminta", yang berarti mengubah authorization logic -
-  // di luar scope "optimasi performa" dan berisiko kalau dikerjakan buru-
-  // buru. Jadi di sini saya HANYA menambahkan pagination UI (5-7 per
-  // halaman) di atas data yang sudah dimuat, tanpa mengubah fetch/logic
-  // visibilitasnya. Saya tandai temuan ini ke Anda secara terpisah.
   async function muat() {
     setLoading(true)
     const res = await api.get('/admin/users?per_page=500')

@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react'
 import { api } from './apiClient'
 
-// Hitung jumlah pesanan yang statusnya berubah (terutama dibatalkan/
-// selesai) yang belum dilihat pembeli, buat badge lonceng notifikasi.
-// Pola sama seperti useNotifikasiKurir.js (Stage 16).
 export function useNotifikasiPembeli(aktif) {
   const [data, setData] = useState({ jumlah_baru: 0, pesanan_terbaru: [] })
 

@@ -36,11 +36,6 @@ class UploadController extends Controller
         // tapi URL publiknya selalu 404 (broken image) walau upload "berhasil".
         $path = $request->file('file')->storeAs($folder, $filename, 'public');
 
-        // Stage 20: standarkan foto yang masuk (resize kalau kelewat besar,
-        // simpan ulang dengan kualitas tinggi) supaya tampilannya tetap
-        // jernih/HD di seluruh NOKA tanpa file jadi raksasa. Kalau gagal
-        // karena apa pun, file asli yang sudah tersimpan di atas tetap
-        // dipakai apa adanya (lihat ImageOptimizer::optimize).
         ImageOptimizer::optimize(Storage::disk('public')->path($path));
 
         // PENTING: path yang disimpan pakai prefix "/media/" (BUKAN

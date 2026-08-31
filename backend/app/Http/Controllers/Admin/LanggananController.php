@@ -10,14 +10,6 @@ use App\Services\TagihanService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-/**
- * Stage 21: kelola langganan & tagihan toko - buat admin & super_admin.
- * Ini SOAL PENDAPATAN NOKA dari toko (biaya langganan/platform), BUKAN
- * data penjualan/omset toko ke pelanggannya - jadi TIDAK melanggar aturan
- * "admin tidak boleh lihat data penjualan toko" (Stage 21 poin 3). Yang
- * ditampilkan cuma JUMLAH transaksi (angka operasional) dan biaya yang
- * toko itu berutang ke NOKA, bukan nilai rupiah penjualan toko itu sendiri.
- */
 class LanggananController extends Controller
 {
     /** Daftar semua toko + status langganan & tagihan bulan berjalan (atau bulan pilihan). */

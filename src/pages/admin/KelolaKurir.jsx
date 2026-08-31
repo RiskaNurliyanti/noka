@@ -51,10 +51,6 @@ export default function KelolaKurir() {
     setTotalPages(Math.max(1, res.data?.last_page || 1));
   }
 
-  // Stage 8: sebelumnya fetch sampai 200 kurir sekaligus lalu difilter di
-  // client (Stage 6). Sekarang backend yang paginasi & filter 'q' (endpoint
-  // sudah mendukungnya), jadi cuma 1 halaman yang benar-benar diambil.
-  // Debounce + guard nomor urut request sama seperti halaman lain.
   useEffect(() => {
     const id = requestId.current + 1;
     requestId.current = id;
@@ -113,10 +109,6 @@ export default function KelolaKurir() {
       showToast(err.message, "error");
     }
   }
-
-  // NOTE: status ketersediaan (online/offline) itu keputusan kurir sendiri,
-  // bukan wewenang admin (Section 17: status ketersediaan terpisah dari
-  // status aktif akun) - makanya admin cuma bisa lihat, bukan ubah di sini.
 
   async function toggleStatusAktif(k) {
     try {

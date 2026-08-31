@@ -15,11 +15,6 @@ const LABEL_STATUS = { pending: 'Menunggu', diproses: 'Diproses', selesai: 'Sele
 const WARNA_STATUS = { pending: 'gray', diproses: 'brand', selesai: 'green', ditolak: 'red' }
 const OPSI_STATUS = Object.keys(LABEL_STATUS)
 
-/**
- * Stage 19: admin/super_admin kelola aduan bug/pelanggaran dari user.
- * Pola halaman sama dengan ModerasiReview/LaporanAdmin - filter jenis +
- * status + pencarian bebas, plus ubah status & catatan tindak lanjut.
- */
 export default function KelolaLaporan() {
   const { showToast } = useToast()
   const [jenis, setJenis] = useState('')

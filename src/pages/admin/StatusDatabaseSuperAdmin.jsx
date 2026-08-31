@@ -49,12 +49,6 @@ function KolomDb({ judul, data }) {
   )
 }
 
-/**
- * Stage 23: bandingkan data Neon vs Supabase per menu, supaya super_admin
- * bisa lihat sendiri apakah dual-write beneran jalan - jumlah baris & 3
- * contoh terbaru dari tiap sisi. Murni diagnostik, tidak mengubah data apa
- * pun.
- */
 export default function StatusDatabaseSuperAdmin() {
   const { showToast } = useToast()
   const [data, setData] = useState(null)

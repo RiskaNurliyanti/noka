@@ -5,30 +5,13 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
-/**
- * Stage 22: backfill SEKALI JALAN - salin SEMUA data yang SUDAH ADA di
- * Neon ke Supabase, supaya kedua database benar-benar sinkron dari titik
- * ini. Beda dari App\Services\DualWriteMirror yang cuma menyalin tulisan
- * BARU ke depan (pesanan) - command ini menyapu data LAMA yang sudah ada
- * sebelum dual-write dipasang.
- *
- * Jalankan SEKALI setelah setup awal (isi DB_LEGACY_* + jalankan
- * SUPABASE-SCHEMA-LENGKAP.sql), atau kapan pun kamu curiga Supabase
- * "ketinggalan" data (mis. DB_LEGACY_* sempat kosong beberapa waktu).
- * Aman dijalankan berkali-kali - pakai upsert, bukan insert biasa, jadi
- * baris yang sudah ada di Supabase akan di-update, bukan bikin duplikat.
- *
- * Urutan tabel SENGAJA mengikuti urutan foreign key (induk dulu baru
- * anak) - kalau urutannya salah, upsert baris anak akan gagal karena
- * baris induknya belum ada di Supabase.
- */
 class BackfillSupabase extends Command
 {
     protected $signature = 'supabase:backfill
         {--tabel= : Backfill tabel tertentu saja, pisah koma kalau lebih dari 1, mis. --tabel=users,toko}
         {--chunk=200 : Jumlah baris per batch}';
 
-    protected $description = 'Salin SEMUA data yang sudah ada di Neon ke Supabase (Stage 22 - setup awal dual-write)';
+    protected $description = 'Salin SEMUA data yang sudah ada di Neon ke Supabase (setup awal dual-write)';
 
     private const URUTAN_TABEL = [
         'users', 'kategori', 'kategori_toko', 'toko', 'kurir', 'produk',

@@ -65,13 +65,6 @@ class KurirController extends Controller
         return response()->json(['success' => true, 'message' => 'Status ketersediaan diperbarui', 'data' => $kurir]);
     }
 
-    /**
-     * Pesanan pengantaran yang kurir ini kebagian (pesanan.kurir_id = kurir
-     * ini) - dipakai DashboardKurir.jsx & riwayat pesanan kurir.
-     *
-     * Stage 18: sekarang bisa difilter per bulan/minggu/hari dan dicari
-     * bebas (nama toko/pembeli/produk) - dulu cuma daftar polos.
-     */
     public function pesanan(Request $request): JsonResponse
     {
         $kurir = $request->user()->kurir()->first();
@@ -89,12 +82,6 @@ class KurirController extends Controller
         return response()->json(['success' => true, 'message' => 'OK', 'data' => $pesanan]);
     }
 
-    /**
-     * Data harian jumlah pengantaran (14 hari terakhir) buat diagram
-     * statistik di dashboard kurir (Stage 12). Data aktual dari tabel
-     * 'pesanan' (kurir_id = kurir ini), bukan angka dummy. Hari tanpa
-     * pengantaran tetap muncul dengan nilai 0 supaya diagramnya kontinu.
-     */
     public function statsHarian(Request $request): JsonResponse
     {
         $kurir = $request->user()->kurir()->first();
@@ -121,14 +108,6 @@ class KurirController extends Controller
         return response()->json(['success' => true, 'message' => 'OK', 'data' => $hasil]);
     }
 
-    /**
-     * Notifikasi pesanan baru untuk kurir (Stage 16). Tidak pakai tabel
-     * notifikasi terpisah - cukup bandingkan created_at pesanan dengan
-     * kolom notifikasi_dilihat_at milik kurir. Begitu kurir buka dropdown
-     * notifikasi (lihat tandaiDilihat()), timestamp diupdate, otomatis
-     * pesanan yang sama tidak lagi terhitung "baru" - jadi tidak ada
-     * notifikasi yang duplikat/nempel terus buat pesanan yang sama.
-     */
     public function notifikasi(Request $request): JsonResponse
     {
         $kurir = $request->user()->kurir()->first();

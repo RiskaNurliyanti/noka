@@ -8,12 +8,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-/**
- * Stage 25: statistik pengunjung situs untuk admin & super_admin. Ini
- * metrik ENGAGEMENT platform (berapa kali diakses, halaman mana yang
- * ramai) - BUKAN data penjualan/omset toko, jadi tetap boleh dilihat
- * admin biasa (tidak kena pembatasan Stage 21 poin 3).
- */
 class AnalitikController extends Controller
 {
     public function ringkasan(Request $request): JsonResponse

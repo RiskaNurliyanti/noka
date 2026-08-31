@@ -7,18 +7,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Stage 25: analitik pengunjung SITUS (beda dari `kunjungan_toko` yang
-     * cuma catat kunjungan ke 1 halaman toko tertentu) - buat tahu sejauh
-     * mana website NOKA diakses secara keseluruhan: halaman mana yang
-     * paling sering dibuka, berapa pengunjung unik, dari perangkat apa.
-     *
-     * `sesi_id` = ID anonim yang dibuat FRONTEND (disimpan di localStorage,
-     * bukan cookie/tracking lintas-situs) - dipakai buat menghitung
-     * "pengunjung unik" tanpa perlu user login atau memasang tracker pihak
-     * ketiga (Google Analytics dkk). `user_id` cuma terisi kalau pengunjung
-     * itu sedang login.
-     */
+
     public function up(): void
     {
         Schema::create('kunjungan_situs', function (Blueprint $table) {

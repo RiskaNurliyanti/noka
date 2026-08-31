@@ -79,9 +79,6 @@ export default function App() {
       .catch(() => setCekSelesai(true)) // gagal cek -> anggap bukan maintenance, jangan blokir situs
   }, [])
 
-  // Stage 25: catat kunjungan tiap kali path berubah (navigasi SPA tidak
-  // reload halaman, jadi harus dipantau lewat useLocation, bukan lewat
-  // event 'load' browser biasa).
   useEffect(() => {
     catatKunjungan(lokasi.pathname)
   }, [lokasi.pathname])
@@ -140,7 +137,7 @@ export default function App() {
           <Route path="/pesanan-saya" element={<D><PesananSaya /></D>} />
           <Route path="/review-saya" element={<D><ReviewSaya /></D>} />
           <Route path="/favorit" element={<D><Favorit /></D>} />
-          {/* Stage 19: lapor masalah - semua role yang login (pembeli/toko/kurir/admin) */}
+
           <Route path="/lapor-masalah" element={<D><LaporMasalah /></D>} />
 
           {/* Mitra toko (Penjual) */}
@@ -148,7 +145,7 @@ export default function App() {
           <Route path="/mitra/toko/menu" element={<D role="mitra_toko"><KelolaMenu /></D>} />
           <Route path="/mitra/toko/pesanan" element={<D role="mitra_toko"><PesananMasuk /></D>} />
           <Route path="/mitra/toko/laporan" element={<D role="mitra_toko"><LaporanToko /></D>} />
-          {/* Stage 21: toko lihat status langganan & tagihan sendiri */}
+
           <Route path="/mitra/toko/langganan" element={<D role="mitra_toko"><Langganan /></D>} />
 
           {/* Mitra kurir */}
@@ -164,14 +161,14 @@ export default function App() {
           <Route path="/admin/pesanan" element={<D role="admin"><LaporanAdmin /></D>} />
           <Route path="/admin/produk" element={<D role="admin"><KelolaProdukGlobal /></D>} />
           <Route path="/admin/review" element={<D role="admin"><ModerasiReview /></D>} />
-          {/* Stage 19: kelola aduan bug/pelanggaran dari user */}
+
           <Route path="/admin/laporan" element={<D role="admin"><KelolaLaporan /></D>} />
-          {/* Stage 21: langganan & tagihan toko (admin & super admin), audit log (super admin saja) */}
+
           <Route path="/admin/langganan" element={<D role="admin"><KelolaLangganan /></D>} />
           <Route path="/super-admin/audit-log" element={<D role="super_admin"><AuditLogSuperAdmin /></D>} />
-          {/* Stage 23: diagnostik dual-write Neon vs Supabase - khusus super admin */}
+
           <Route path="/super-admin/status-database" element={<D role="super_admin"><StatusDatabaseSuperAdmin /></D>} />
-          {/* Stage 25: analitik pengunjung - admin & super admin */}
+
           <Route path="/admin/analitik" element={<D role="admin"><AnalitikPengunjung /></D>} />
 
           {/* Super Admin - eksklusif */}

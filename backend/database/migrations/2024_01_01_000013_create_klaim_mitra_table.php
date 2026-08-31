@@ -7,12 +7,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Inti mekanisme klaim mitra (Section 14 instruksi). CHECK constraint
-     * klaim_target_valid direplikasi PERSIS dari schema asli - jangan
-     * disederhanakan, ini yang menjamin satu klaim cuma boleh menunjuk
-     * toko ATAU kurir, tidak dua-duanya / tidak kosong dua-duanya.
-     */
+
     public function up(): void
     {
         DB::statement('drop type if exists jenis_klaim'); // idempotent - aman kalau migrate:fresh diulang setelah gagal di tengah jalan

@@ -1,6 +1,3 @@
-// Stage 18: daftar alasan pembatalan pesanan per role - HARUS sinkron
-// dengan App\Support\AlasanPembatalan di backend (nilai key persis sama,
-// backend yang jadi sumber kebenaran validasi - ini cuma buat label di UI).
 export const LABEL_ALASAN_PEMBATALAN = {
   toko_tutup: 'Toko tutup',
   stok_tidak_tersedia: 'Stok pesanan tidak tersedia',

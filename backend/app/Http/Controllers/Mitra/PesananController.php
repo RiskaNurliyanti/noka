@@ -16,13 +16,6 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
-/**
- * Laporan pesanan & update status untuk PENJUAL (Stage 17). SELALU
- * dibatasi ke toko milik user yang login lewat $toko->pesanan() - penjual
- * tidak pernah bisa lihat/ubah pesanan toko lain sama sekali, bahkan
- * dengan menebak-nebak ID pesanan (selalu 404, bukan 403, supaya tidak
- * membocorkan pesanan itu ada tapi milik toko lain).
- */
 class PesananController extends Controller
 {
     use FiltersRiwayatPesanan;
@@ -32,10 +25,6 @@ class PesananController extends Controller
         return $request->user()->toko()->first();
     }
 
-    /**
-     * Search bebas (Stage 13.5) - nama pembeli (baik user login maupun
-     * guest) atau nama produk di dalam pesanan.
-     */
     private function filterCari(Request $request, $query)
     {
         if ($request->filled('q')) {
@@ -58,9 +47,6 @@ class PesananController extends Controller
             return response()->json(['success' => false, 'message' => 'Kamu belum punya toko'], 404);
         }
 
-        // Filter 'bulan' opsional (Stage 17) - PesananMasuk.jsx (dashboard
-        // pesanan masuk) tidak mengirim parameter ini jadi perilakunya
-        // untuk halaman itu tidak berubah sama sekali.
         $query = $toko->pesanan()->with(['item.produk', 'pembeli:id,nama,no_whatsapp', 'kurir']);
         $this->filterPeriode($request, $query);
         $this->filterCari($request, $query);
@@ -87,18 +73,6 @@ class PesananController extends Controller
         return response()->json(['success' => true, 'message' => 'OK', 'data' => $pesanan]);
     }
 
-    /**
-     * Update status pesanan - dipakai penjual buat catat pembatalan manual
-     * dari WhatsApp (atau update status lain sesuai siklus yang tersedia,
-     * termasuk menandai pesanan selesai). TIDAK ada sistem pembatalan
-     * WhatsApp baru di sini - ini murni pencatatan status yang terjadi di
-     * luar sistem.
-     *
-     * Stage 18: kalau status di-set 'dibatalkan', WAJIB sertakan
-     * alasan_pembatalan dari AlasanPembatalan::UNTUK_TOKO (toko tutup /
-     * stok tidak tersedia) - toko tidak boleh pakai alasan milik peran
-     * lain (mis. "kurir libur").
-     */
     public function updateStatus(Request $request, string $id): JsonResponse
     {
         $toko = $this->tokoMilikUser($request);
@@ -142,12 +116,6 @@ class PesananController extends Controller
         return response()->json(['success' => true, 'message' => 'Status pesanan diperbarui', 'data' => $pesanan]);
     }
 
-    /**
-     * Export laporan Excel toko sendiri (Stage 17). Kolom lengkap: tanggal
-     * penjualan, ID pesanan, toko, pembeli, nama produk, jumlah, harga
-     * satuan, subtotal, total pesanan, status, kurir - lihat
-     * LaporanPesananExcel untuk detail formatnya.
-     */
     public function export(Request $request): StreamedResponse|JsonResponse
     {
         $toko = $this->tokoMilikUser($request);

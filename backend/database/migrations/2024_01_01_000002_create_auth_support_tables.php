@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Tabel pendukung bawaan Laravel: password reset tokens (buat fitur
-     * Lupa Password Section 9) dan sessions (buat Sanctum SPA cookie auth,
-     * SESSION_DRIVER=database).
-     */
+
     public function up(): void
     {
         Schema::create('password_reset_tokens', function (Blueprint $table) {

@@ -23,8 +23,6 @@ export default function Register() {
     setLoading(true)
     try {
       await register(form)
-      // Tidak navigate('/dashboard') - akun baru belum punya sesi, wajib
-      // verifikasi email dulu (Stage 4).
       setSukses(true)
     } catch (err) {
       setError(err.message)
