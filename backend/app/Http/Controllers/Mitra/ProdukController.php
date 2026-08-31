@@ -13,10 +13,15 @@ use Illuminate\Http\Request;
  * toko itu selalu dianggap "tidak ditemukan" (404), bukan 403 - supaya
  * tidak membocorkan bahwa produk itu ada tapi milik toko lain.
  */
+<<<<<<< HEAD
 // Kelola menu/produk milik toko sendiri.
 class ProdukController extends Controller
 {
     // Ambil toko milik user yang sedang login.
+=======
+class ProdukController extends Controller
+{
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     private function tokoMilikUser(Request $request): ?Toko
     {
         return $request->user()->toko()->first();

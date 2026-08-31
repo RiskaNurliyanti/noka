@@ -5,11 +5,17 @@ namespace App\Http\Controllers\Concerns;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
+<<<<<<< HEAD
 // Filter riwayat pesanan berdasarkan periode (bulan/minggu/hari) dan kata kunci pencarian.
 trait FiltersRiwayatPesanan
 {
 
     // Filter query berdasarkan periode: hari/minggu/bulan tertentu.
+=======
+trait FiltersRiwayatPesanan
+{
+
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     protected function filterPeriode(Request $request, $query)
     {
         if ($request->filled('hari')) {

@@ -6,10 +6,15 @@ use App\Models\KunjunganSitus;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
+<<<<<<< HEAD
 // Catat kunjungan/aktivitas pengunjung situs (analitik).
 class TrackingController extends Controller
 {
     // Catat satu event kunjungan/aktivitas pengunjung.
+=======
+class TrackingController extends Controller
+{
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function catat(Request $request): JsonResponse
     {
         $data = $request->validate([

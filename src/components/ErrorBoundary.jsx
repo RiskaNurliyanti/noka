@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // Tangkap error React yang gak ketangkep, biar app gak blank putih total.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { Component } from 'react'
 
 export default class ErrorBoundary extends Component {

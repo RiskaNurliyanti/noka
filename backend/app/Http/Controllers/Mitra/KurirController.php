@@ -12,7 +12,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
+<<<<<<< HEAD
 // Dashboard mitra kurir: kelola profil sendiri, pesanan yang ditugaskan, dan notifikasinya.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class KurirController extends Controller
 {
     use FiltersRiwayatPesanan;
@@ -52,7 +55,10 @@ class KurirController extends Controller
         return response()->json(['success' => true, 'message' => 'Profil kurir berhasil diperbarui', 'data' => $kurir]);
     }
 
+<<<<<<< HEAD
     // Toggle status 'tersedia'/'tidak tersedia' kurir.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function updateKetersediaan(Request $request): JsonResponse
     {
         $kurir = $request->user()->kurir()->first();
@@ -67,7 +73,10 @@ class KurirController extends Controller
         return response()->json(['success' => true, 'message' => 'Status ketersediaan diperbarui', 'data' => $kurir]);
     }
 
+<<<<<<< HEAD
     // Daftar pesanan yang ditugaskan ke kurir ini.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function pesanan(Request $request): JsonResponse
     {
         $kurir = $request->user()->kurir()->first();
@@ -85,7 +94,10 @@ class KurirController extends Controller
         return response()->json(['success' => true, 'message' => 'OK', 'data' => $pesanan]);
     }
 
+<<<<<<< HEAD
     // Statistik pengantaran kurir per hari, buat grafik.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function statsHarian(Request $request): JsonResponse
     {
         $kurir = $request->user()->kurir()->first();
@@ -112,7 +124,10 @@ class KurirController extends Controller
         return response()->json(['success' => true, 'message' => 'OK', 'data' => $hasil]);
     }
 
+<<<<<<< HEAD
     // Hitung pesanan baru & pesanan yang statusnya berubah, buat badge lonceng.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function notifikasi(Request $request): JsonResponse
     {
         $kurir = $request->user()->kurir()->first();
@@ -168,7 +183,10 @@ class KurirController extends Controller
         ]);
     }
 
+<<<<<<< HEAD
     // Tandai notifikasi kurir sudah dilihat.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function tandaiDilihat(Request $request): JsonResponse
     {
         $kurir = $request->user()->kurir()->first();

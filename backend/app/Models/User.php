@@ -12,7 +12,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+<<<<<<< HEAD
 // Akun pengguna NOKA - satu tabel untuk semua role (pembeli, mitra toko, mitra kurir, admin, super admin).
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasUuids, MirrorsToSupabase, Notifiable;
@@ -37,19 +40,28 @@ class User extends Authenticatable implements MustVerifyEmail
 
     // ---- Role helpers (nama role TIDAK diubah, persis 5 nilai lama) ----
 
+<<<<<<< HEAD
     // Cek apakah role user ini sama dengan yang dicek.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function isRole(string $role): bool
     {
         return $this->role === $role;
     }
 
+<<<<<<< HEAD
     // Cek apakah user ini admin (atau super admin).
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function isAdmin(): bool
     {
         return in_array($this->role, ['admin', 'super_admin'], true);
     }
 
+<<<<<<< HEAD
     // Cek apakah user ini super admin.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function isSuperAdmin(): bool
     {
         return $this->role === 'super_admin';
@@ -62,7 +74,10 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->notify(new ResetPasswordNotification($token));
     }
 
+<<<<<<< HEAD
     // Override bawaan Laravel biar email verifikasi pakai template sendiri.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function sendEmailVerificationNotification(): void
     {
         $this->notify(new VerifyEmailNotification);

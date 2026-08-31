@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // Dropdown filter periode (hari/minggu/bulan) untuk laporan & statistik.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { useState } from 'react'
 
 function bulanIni() {

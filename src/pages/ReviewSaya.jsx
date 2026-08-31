@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // Halaman daftar review yang pernah dikirim pembeli.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { useEffect, useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { api } from '../lib/apiClient'

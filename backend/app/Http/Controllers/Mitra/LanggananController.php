@@ -8,7 +8,10 @@ use App\Models\Tagihan;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
+<<<<<<< HEAD
 // Lihat status langganan bulanan toko sendiri.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class LanggananController extends Controller
 {
     public function show(Request $request): JsonResponse

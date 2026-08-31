@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // Kirim event kunjungan/analitik ke backend.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { api } from './apiClient'
 
 const KUNCI_SESI = 'noka_sesi_id'

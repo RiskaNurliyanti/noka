@@ -8,7 +8,10 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+<<<<<<< HEAD
 // Tinjau, setujui, atau tolak pengajuan klaim kepemilikan toko/kurir.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class KlaimController extends Controller
 {
     public function index(Request $request): JsonResponse
@@ -24,7 +27,10 @@ class KlaimController extends Controller
         return response()->json(['success' => true, 'message' => 'OK', 'data' => $klaim]);
     }
 
+<<<<<<< HEAD
     // Setujui klaim - toko/kurir jadi resmi milik user yang mengajukan.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function approve(Request $request, string $id): JsonResponse
     {
         $klaim = KlaimMitra::with(['toko', 'kurir', 'user'])->findOrFail($id);
@@ -54,7 +60,10 @@ class KlaimController extends Controller
         return response()->json(['success' => true, 'message' => 'Klaim disetujui', 'data' => $klaim->fresh(['toko', 'kurir', 'user'])]);
     }
 
+<<<<<<< HEAD
     // Tolak pengajuan klaim.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function reject(Request $request, string $id): JsonResponse
     {
         $klaim = KlaimMitra::findOrFail($id);

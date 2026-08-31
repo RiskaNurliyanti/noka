@@ -7,10 +7,15 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
+<<<<<<< HEAD
 // Kirim laporan bug/pelanggaran dan lihat riwayat laporan sendiri.
 class LaporanController extends Controller
 {
     // Kirim laporan bug/pelanggaran baru.
+=======
+class LaporanController extends Controller
+{
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function store(Request $request): JsonResponse
     {
         $data = $request->validate([
@@ -35,7 +40,10 @@ class LaporanController extends Controller
         ], 201);
     }
 
+<<<<<<< HEAD
     // Riwayat laporan yang pernah dikirim user ini.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function riwayatSaya(Request $request): JsonResponse
     {
         $laporan = LaporanPengguna::where('user_id', $request->user()->id)

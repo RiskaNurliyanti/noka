@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // Hook polling notifikasi buat admin (klaim baru, laporan baru, dll).
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { useEffect, useState } from 'react'
 import { api } from './apiClient'
 

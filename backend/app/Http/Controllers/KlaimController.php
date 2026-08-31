@@ -8,10 +8,15 @@ use App\Models\Toko;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
+<<<<<<< HEAD
 // Ajukan klaim kepemilikan toko/kurir yang belum ada pemiliknya (dari sisi pengaju).
 class KlaimController extends Controller
 {
     // Ajukan klaim kepemilikan toko/kurir.
+=======
+class KlaimController extends Controller
+{
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function store(Request $request): JsonResponse
     {
         $data = $request->validate([
@@ -48,7 +53,10 @@ class KlaimController extends Controller
         return response()->json(['success' => true, 'message' => 'Klaim diajukan, menunggu verifikasi admin', 'data' => $klaim], 201);
     }
 
+<<<<<<< HEAD
     // Riwayat klaim yang pernah diajukan user ini.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function riwayatSaya(Request $request): JsonResponse
     {
         $klaim = KlaimMitra::with(['toko', 'kurir'])

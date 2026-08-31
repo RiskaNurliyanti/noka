@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // Label kecil berwarna (mis. status pesanan), dipakai berulang di banyak halaman.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 const WARNA = {
   gray: 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300',
   brand: 'bg-brand-50 dark:bg-brand-950/40 text-brand-600',

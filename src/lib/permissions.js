@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // Aturan menu apa saja yang boleh diakses tiap role.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 export const roleAccess = {
   super_admin: [
     "dashboard",

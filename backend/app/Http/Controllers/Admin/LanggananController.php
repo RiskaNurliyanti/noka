@@ -10,7 +10,10 @@ use App\Services\TagihanService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
+<<<<<<< HEAD
 // Kelola langganan bulanan toko: hitung tagihan, tandai lunas, perpanjang.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class LanggananController extends Controller
 {
     /** Daftar semua toko + status langganan & tagihan bulan berjalan (atau bulan pilihan). */

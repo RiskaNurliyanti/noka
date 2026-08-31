@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // Tombol standar aplikasi dengan beberapa varian warna/ukuran.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 const VARIAN = {
   primary: 'bg-brand-500 hover:bg-brand-600 text-white shadow-sm hover:shadow-md disabled:opacity-50',
   secondary: 'border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200',

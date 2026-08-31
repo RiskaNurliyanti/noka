@@ -4,7 +4,10 @@ namespace App\Http\Requests\Pesanan;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+<<<<<<< HEAD
 // Validasi input checkout: toko, kurir (opsional), daftar produk, dan catatan.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class CheckoutRequest extends FormRequest
 {
     public function authorize(): bool

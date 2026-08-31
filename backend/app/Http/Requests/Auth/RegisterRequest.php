@@ -5,7 +5,10 @@ namespace App\Http\Requests\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;
 
+<<<<<<< HEAD
 // Validasi input form registrasi akun baru.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class RegisterRequest extends FormRequest
 {
     public function authorize(): bool

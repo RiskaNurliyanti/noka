@@ -8,10 +8,15 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+<<<<<<< HEAD
 // Statistik ringkas buat dashboard admin: total toko, kurir, pesanan, dll.
 class AnalitikController extends Controller
 {
     // Angka ringkas: total toko, kurir, pesanan, dst untuk kartu statistik di dashboard.
+=======
+class AnalitikController extends Controller
+{
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function ringkasan(Request $request): JsonResponse
     {
         $hari = max(1, $request->integer('hari', 30));

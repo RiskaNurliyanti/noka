@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // Tampilan "belum ada data" standar (ikon + pesan), dipakai di banyak halaman.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 export default function EmptyState({ icon = '📭', title, description }) {
   return (
     <div className="text-center py-16">

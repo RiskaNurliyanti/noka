@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+<<<<<<< HEAD
 // Langganan bulanan toko ke NOKA beserta status pembayarannya.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class Langganan extends Model
 {
     use HasUuids, MirrorsToSupabase;
@@ -43,7 +46,10 @@ class Langganan extends Model
         return $this->status === 'aktif' && $sisa >= 0 && $sisa <= $ambangHari;
     }
 
+<<<<<<< HEAD
     // Cek apakah langganan ini sudah lewat tanggal berakhirnya.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function sudahKadaluarsa(): bool
     {
         return $this->sisaHari() < 0;

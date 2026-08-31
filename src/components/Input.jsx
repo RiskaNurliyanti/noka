@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // Input teks standar aplikasi dengan label & pesan error.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { useState } from 'react'
 
 export default function Input({ label, error, hint, textarea = false, type, className = '', ...props }) {

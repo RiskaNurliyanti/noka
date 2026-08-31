@@ -8,7 +8,10 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
+<<<<<<< HEAD
 // Tinjau laporan bug/pelanggaran yang dikirim pengguna.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class LaporanController extends Controller
 {
     public function index(Request $request): JsonResponse

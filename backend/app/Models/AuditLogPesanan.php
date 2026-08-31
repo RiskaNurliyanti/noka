@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+<<<<<<< HEAD
 // Riwayat perubahan status pesanan (siapa mengubah apa, kapan) - buat audit, cuma bisa dilihat super admin.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class AuditLogPesanan extends Model
 {
     use HasUuids, MirrorsToSupabase;

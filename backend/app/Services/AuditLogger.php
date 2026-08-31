@@ -8,10 +8,15 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
+<<<<<<< HEAD
 // Catat riwayat perubahan status pesanan ke tabel audit log.
 class AuditLogger
 {
     // Simpan satu baris riwayat perubahan pesanan ke audit log.
+=======
+class AuditLogger
+{
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public static function catatPesanan(
         Pesanan $pesanan,
         ?User $user,

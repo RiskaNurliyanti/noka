@@ -13,11 +13,17 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 
+<<<<<<< HEAD
 // Registrasi, login, verifikasi email, dan kelola profil akun sendiri.
 class AuthController extends Controller
 {
 
     // Daftar akun baru + kirim email verifikasi.
+=======
+class AuthController extends Controller
+{
+
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function register(RegisterRequest $request): JsonResponse
     {
         $data = $request->validated();
@@ -49,7 +55,10 @@ class AuthController extends Controller
         ], 201);
     }
 
+<<<<<<< HEAD
     // Login pakai email & password, kembalikan token API.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function login(LoginRequest $request): JsonResponse
     {
         $credentials = $request->validated();
@@ -145,7 +154,10 @@ class AuthController extends Controller
         ]);
     }
 
+<<<<<<< HEAD
     // Hapus token API yang sedang dipakai.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function logout(Request $request): JsonResponse
     {
         Auth::guard('web')->logout();
@@ -159,7 +171,10 @@ class AuthController extends Controller
         ]);
     }
 
+<<<<<<< HEAD
     // Ambil data akun user yang sedang login.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function me(Request $request): JsonResponse
     {
         $user = $request->user();
@@ -199,7 +214,10 @@ class AuthController extends Controller
         ]);
     }
 
+<<<<<<< HEAD
     // Susun data user jadi bentuk JSON yang konsisten buat semua response.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     private function formatUser(User $user): array
     {
         return [

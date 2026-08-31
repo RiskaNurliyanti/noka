@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // Wrapper localStorage/sessionStorage aplikasi.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { API_URL } from './apiClient'
 
 // Upload foto lewat Laravel API (POST /upload) - menggantikan upload

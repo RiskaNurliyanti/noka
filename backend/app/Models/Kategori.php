@@ -11,7 +11,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * Kategori PRODUK (Makanan, Minuman, Snack, dst). Nama tabel `kategori`
  * dipertahankan dari schema lama meski agak ambigu dengan kategori_toko.
  */
+<<<<<<< HEAD
 // Kategori produk (mis. Makanan, Minuman) - dipakai buat filter di halaman produk.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class Kategori extends Model
 {
     use HasUuids, MirrorsToSupabase;

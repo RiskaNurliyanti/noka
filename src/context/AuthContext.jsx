@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // Simpan data user yang sedang login, dipakai di seluruh aplikasi.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { createContext, useContext, useEffect, useState } from 'react'
 import { api } from '../lib/apiClient'
 import { setCartUserId } from '../lib/cart'

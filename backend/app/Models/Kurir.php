@@ -8,7 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+<<<<<<< HEAD
 // Profil mitra kurir (jasa antar) beserta status ketersediaan dan verifikasinya.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class Kurir extends Model
 {
     use HasUuids, MirrorsToSupabase;

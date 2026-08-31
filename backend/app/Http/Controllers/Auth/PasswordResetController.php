@@ -12,11 +12,17 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 
+<<<<<<< HEAD
 // Alur lupa password: kirim link reset dan proses reset password.
 class PasswordResetController extends Controller
 {
 
     // Kirim link reset password ke email.
+=======
+class PasswordResetController extends Controller
+{
+
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public function forgotPassword(ForgotPasswordRequest $request): JsonResponse
     {
         try {

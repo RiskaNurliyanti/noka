@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // Layout dengan sidebar + navbar, dipakai semua halaman dashboard (admin/mitra).
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { useState } from 'react'
 import Sidebar from './Sidebar'
 

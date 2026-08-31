@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // Grafik statistik harian, dipakai halaman toko & kurir.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { useTheme } from '../context/ThemeContext'
 

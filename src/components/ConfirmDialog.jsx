@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // Popup konfirmasi ya/tidak sebelum aksi penting (mis. hapus data).
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { createContext, useCallback, useContext, useState } from 'react'
 
 const ConfirmContext = createContext(null)

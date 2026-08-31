@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+<<<<<<< HEAD
 // Pengajuan klaim kepemilikan toko/kurir yang belum ada pemiliknya - ditinjau admin sebelum disetujui.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class KlaimMitra extends Model
 {
     use HasUuids, MirrorsToSupabase;

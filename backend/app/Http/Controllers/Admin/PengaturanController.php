@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Mail;
  * biasa) - lihat routes/api.php. Ini pengaturan tingkat sistem (maintenance
  * mode, dll), bukan operasional harian.
  */
+<<<<<<< HEAD
 // Kelola pengaturan global aplikasi (nama web, logo, dll) dan tes kirim email.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class PengaturanController extends Controller
 {
     public function show(): JsonResponse

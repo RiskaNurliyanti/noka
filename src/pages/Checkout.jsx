@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // Halaman checkout - isi data pesanan lalu lanjut ke WhatsApp toko/kurir.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../lib/apiClient";

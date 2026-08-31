@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // Upload & preview beberapa foto sekaligus (mis. foto produk).
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { useState } from 'react'
 import { uploadGaleri } from '../lib/storage'
 import { useToast } from '../context/ToastContext'

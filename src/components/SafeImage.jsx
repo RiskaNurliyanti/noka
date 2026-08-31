@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // Tampilkan gambar dengan fallback kalau URL-nya gagal dimuat.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { useState, useEffect } from 'react'
 import { API_URL } from '../lib/apiClient'
 

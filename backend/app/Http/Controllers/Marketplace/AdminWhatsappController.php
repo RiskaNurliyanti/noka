@@ -13,7 +13,10 @@ use Illuminate\Http\JsonResponse;
  * pengaturan_sistem.admin_whatsapp - itu field terpisah, tidak dipakai
  * flow ini di kode lama, jadi tidak diubah di sini).
  */
+<<<<<<< HEAD
 // Ambil nomor WhatsApp admin, dipakai halaman klaim mitra.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class AdminWhatsappController extends Controller
 {
     public function show(): JsonResponse

@@ -2,7 +2,10 @@
 
 namespace App\Services;
 
+<<<<<<< HEAD
 // Kompres & resize gambar upload (produk/toko/dll) biar ukuran filenya kecil.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 class ImageOptimizer
 {
     private const MAX_DIMENSI = 2000; // px, sisi terpanjang
@@ -11,7 +14,10 @@ class ImageOptimizer
 
     private const KOMPRESI_PNG = 6; // 0 (tanpa kompresi) - 9 (maksimal), 6 = seimbang
 
+<<<<<<< HEAD
     // Kompres & resize satu file gambar in-place.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     public static function optimize(string $path): void
     {
         if (! extension_loaded('gd') || ! is_file($path)) {
@@ -53,7 +59,10 @@ class ImageOptimizer
         }
     }
 
+<<<<<<< HEAD
     // Perkecil dimensi gambar kalau melebihi batas maksimal.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     private static function resize($gambar, int $lebar, int $tinggi)
     {
         $rasio = $lebar / $tinggi;
@@ -79,7 +88,10 @@ class ImageOptimizer
         return $tujuan;
     }
 
+<<<<<<< HEAD
     // Simpan gambar ke file sesuai tipenya (JPEG/PNG/dll).
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
     private static function simpan($gambar, string $path, int $tipe): void
     {
         match ($tipe) {

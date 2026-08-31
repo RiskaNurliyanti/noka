@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // Daftar alasan pembatalan pesanan untuk tiap role (pembeli/toko/kurir).
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 export const LABEL_ALASAN_PEMBATALAN = {
   toko_tutup: 'Toko tutup',
   stok_tidak_tersedia: 'Stok pesanan tidak tersedia',

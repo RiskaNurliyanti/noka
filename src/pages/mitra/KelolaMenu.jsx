@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // Kelola menu/produk milik toko sendiri.
+=======
+>>>>>>> 2fff3a60799c7dedfea322691fe3a95949db6590
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
